@@ -2,792 +2,489 @@
 
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>こころの子育てインターねっと関西 | KKI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream: #faf7f2;
-      --warm-white: #fff9f4;
-      --blush: #f2e8df;
-      --sage: #7a9e87;
-      --sage-light: #a8c4b0;
-      --sage-dark: #4e7a60;
-      --terracotta: #c07a5a;
-      --terracotta-light: #e0a882;
-      --sand: #d4b896;
-      --charcoal: #2c2c2c;
-      --mid-gray: #6b6b6b;
-      --light-gray: #b8b0a8;
-      --accent-gold: #b8965a;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>こころの子育てインターねっと関西 KKI | 子育て・親支援サポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #fdf9f4;
+  --warm-white: #fffcf8;
+  --blush: #f5ece4;
+  --blush-deep: #ead8cc;
+  --sage: #6b9478;
+  --sage-light: #9cbfaa;
+  --sage-pale: #d8ebe0;
+  --sage-dark: #3d6b51;
+  --terracotta: #c4785a;
+  --terracotta-light: #dfa080;
+  --terracotta-pale: #f5e0d6;
+  --sand: #c8a882;
+  --gold: #b8925a;
+  --sky: #8fb8d0;
+  --sky-pale: #ddeef6;
+  --charcoal: #2a2a2a;
+  --mid: #5a5a5a;
+  --light: #aaa098;
+  --border: rgba(180,160,140,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--charcoal);font-weight:300;line-height:1.8;overflow-x:hidden}
 
-```
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── SMOOTH PAGE TRANSITIONS ─── */
+.page{display:none;animation:fadeIn .5s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-html { scroll-behavior: smooth; }
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(253,249,244,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(–border);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 28px rgba(80,50,30,.08)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer}
+.nav-logo-mark{width:38px;height:38px;flex-shrink:0}
+.nav-logo-text{line-height:1.35}
+.nav-logo-en{font-family:‘Cormorant Garamond’,serif;font-size:1.15rem;letter-spacing:.35em;color:var(–terracotta);display:block}
+.nav-logo-jp{font-family:‘Noto Serif JP’,serif;font-size:.72rem;letter-spacing:.08em;color:var(–sage-dark)}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links li a,.nav-links li button{background:none;border:none;font-family:‘Noto Sans JP’,sans-serif;font-weight:300;font-size:.78rem;letter-spacing:.07em;color:var(–mid);text-decoration:none;padding:8px 14px;cursor:pointer;position:relative;transition:color .2s}
+.nav-links li a::after,.nav-links li button::after{content:’’;position:absolute;bottom:4px;left:14px;right:14px;height:1.5px;background:var(–terracotta);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.nav-links li a:hover,.nav-links li button:hover{color:var(–terracotta)}
+.nav-links li a:hover::after,.nav-links li button:hover::after{transform:scaleX(1)}
+.nav-cta{font-size:.74rem;letter-spacing:.1em;padding:9px 22px;border:1.5px solid var(–sage);color:var(–sage-dark);text-decoration:none;border-radius:40px;transition:all .3s;background:none;cursor:pointer;font-family:‘Noto Sans JP’,sans-serif;font-weight:300}
+.nav-cta:hover{background:var(–sage);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:1.5px;background:var(–charcoal);transition:all .3s;display:block}
 
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background-color: var(--cream);
-  color: var(--charcoal);
-  font-weight: 300;
-  line-height: 1.8;
-  overflow-x: hidden;
-}
+/* ─── HERO ─── */
+.hero{min-height:100vh;padding-top:68px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 5vw 80px 8vw;position:relative;z-index:1}
+.hero-eyebrow{font-family:‘Cormorant Garamond’,serif;font-size:.88rem;letter-spacing:.45em;color:var(–terracotta);margin-bottom:1.8rem;opacity:0;animation:slideUp .8s .2s forwards}
+.hero-title{font-family:‘Noto Serif JP’,serif;font-size:clamp(1.8rem,3vw,3rem);font-weight:400;line-height:1.65;margin-bottom:1.8rem;opacity:0;animation:slideUp .8s .4s forwards}
+.hero-title em{font-style:normal;color:var(–sage-dark)}
+.hero-title .accent{color:var(–terracotta)}
+.hero-body{font-size:.87rem;color:var(–mid);line-height:2;max-width:400px;margin-bottom:2.5rem;opacity:0;animation:slideUp .8s .6s forwards}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:slideUp .8s .8s forwards}
+.hero-stats{display:flex;gap:2rem;margin-top:3rem;opacity:0;animation:slideUp .8s 1s forwards}
+.stat-item{text-align:center}
+.stat-num{font-family:‘Cormorant Garamond’,serif;font-size:2.2rem;color:var(–sage-dark);line-height:1;display:block}
+.stat-label{font-size:.7rem;color:var(–light);letter-spacing:.1em;margin-top:4px;display:block}
+.hero-right{position:relative;background:linear-gradient(145deg,var(–blush) 0%,var(–blush-deep) 60%,#ddd0c5 100%);overflow:hidden}
+.hero-photo-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;padding:3px}
+.hero-photo-grid .ph{overflow:hidden;position:relative}
+.hero-photo-grid .ph img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
+.hero-photo-grid .ph:hover img{transform:scale(1.05)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,249,244,.35) 0%,transparent 60%);pointer-events:none;z-index:1}
+.hero-badge{position:absolute;bottom:32px;left:-8px;z-index:2;background:#fff;padding:14px 20px;border-radius:0 12px 12px 0;box-shadow:0 8px 32px rgba(60,40,20,.14);max-width:230px;opacity:0;animation:slideRight .8s 1.2s forwards}
+.hero-badge-icon{font-size:1.4rem;margin-bottom:6px}
+.hero-badge strong{display:block;font-family:‘Noto Serif JP’,serif;font-size:.82rem;color:var(–sage-dark);margin-bottom:2px}
+.hero-badge span{font-size:.72rem;color:var(–mid);line-height:1.5}
 
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5vw;
-  height: 64px;
-  background: rgba(250, 247, 242, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(180, 160, 140, 0.18);
-  transition: box-shadow 0.3s;
-}
-nav.scrolled { box-shadow: 0 2px 24px rgba(80,60,40,0.08); }
+/* ─── MARQUEE ─── */
+.marquee{background:var(–sage);padding:12px 0;overflow:hidden}
+.marquee-track{display:flex;animation:marquee 30s linear infinite;white-space:nowrap}
+.marquee-track span{font-size:.74rem;letter-spacing:.22em;color:rgba(255,255,255,.82);flex-shrink:0;padding:0 2rem}
+.marquee-track span.dot{color:rgba(255,255,255,.4);padding:0 .5rem}
 
-.nav-logo {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  color: var(--sage-dark);
-  text-decoration: none;
-  line-height: 1.4;
-}
-.nav-logo span {
-  display: block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.3em;
-  color: var(--terracotta);
-}
+/* ─── BUTTONS ─── */
+.btn-p{display:inline-flex;align-items:center;gap:7px;padding:13px 30px;background:var(–terracotta);color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.1em;border-radius:40px;transition:all .3s;box-shadow:0 4px 20px rgba(196,120,90,.28);border:none;cursor:pointer;font-family:‘Noto Sans JP’,sans-serif;font-weight:300}
+.btn-p:hover{background:var(–sage-dark);box-shadow:0 6px 28px rgba(61,107,81,.3);transform:translateY(-2px)}
+.btn-s{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border:1.5px solid var(–light);color:var(–mid);text-decoration:none;font-size:.8rem;letter-spacing:.09em;border-radius:40px;transition:all .3s;background:none;cursor:pointer;font-family:‘Noto Sans JP’,sans-serif;font-weight:300}
+.btn-s:hover{border-color:var(–sage);color:var(–sage-dark)}
+.btn-w{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border:1.5px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font-size:.78rem;letter-spacing:.1em;border-radius:40px;transition:all .3s;background:none;cursor:pointer;font-family:‘Noto Sans JP’,sans-serif;font-weight:300}
+.btn-w:hover{background:rgba(255,255,255,.15)}
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  color: var(--mid-gray);
-  text-decoration: none;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 0;
-  width: 0; height: 1px;
-  background: var(--terracotta);
-  transition: width 0.3s;
-}
-.nav-links a:hover { color: var(--terracotta); }
-.nav-links a:hover::after { width: 100%; }
+/* ─── SECTIONS ─── */
+.sec{padding:96px 8vw}
+.sec-label{font-family:‘Cormorant Garamond’,serif;font-size:.83rem;letter-spacing:.45em;color:var(–terracotta);margin-bottom:.9rem;text-transform:uppercase}
+.sec-title{font-family:‘Noto Serif JP’,serif;font-size:clamp(1.5rem,2.4vw,2.3rem);font-weight:400;line-height:1.6;margin-bottom:1.6rem}
+.sec-sub{font-size:.86rem;color:var(–mid);line-height:2;max-width:520px}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(–border) 30%,var(–border) 70%,transparent)}
 
-.nav-cta {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  padding: 8px 20px;
-  border: 1px solid var(--sage);
-  color: var(--sage-dark);
-  text-decoration: none;
-  border-radius: 40px;
-  transition: all 0.3s;
-}
-.nav-cta:hover {
-  background: var(--sage);
-  color: white;
-}
+/* ─── PROGRAMS ─── */
+.prog-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:4rem}
+.prog-intro-text{}
+.prog-intro-visual{position:relative;height:400px;border-radius:20px;overflow:hidden}
+.prog-intro-visual img{width:100%;height:100%;object-fit:cover}
+.prog-intro-visual::after{content:’’;position:absolute;inset:0;background:linear-gradient(to top,rgba(61,107,81,.4),transparent)}
+.prog-intro-caption{position:absolute;bottom:24px;left:24px;right:24px;color:#fff;font-family:‘Noto Serif JP’,serif;font-size:.9rem}
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 64px;
-  overflow: hidden;
-}
+.prog-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px}
+.prog-card{background:var(–warm-white);padding:44px 32px;text-decoration:none;color:inherit;transition:all .4s;position:relative;overflow:hidden;cursor:pointer;border:none;display:block;width:100%;text-align:left;font-family:inherit}
+.prog-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:4px;transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.prog-card.bp1::before{background:linear-gradient(to right,var(–terracotta),var(–terracotta-light))}
+.prog-card.bp2::before{background:linear-gradient(to right,var(–sage-dark),var(–sage))}
+.prog-card.bp3::before{background:linear-gradient(to right,var(–sky),#6aa8cc)}
+.prog-card:hover{background:var(–blush)}
+.prog-card:hover::before{transform:scaleX(1)}
+.prog-num{font-family:‘Cormorant Garamond’,serif;font-size:3.5rem;font-weight:300;line-height:1;margin-bottom:1rem;opacity:.25}
+.prog-card.bp1 .prog-num{color:var(–terracotta)}
+.prog-card.bp2 .prog-num{color:var(–sage-dark)}
+.prog-card.bp3 .prog-num{color:var(–sky)}
+.prog-icon{width:64px;height:64px;margin-bottom:1.2rem;flex-shrink:0}
+.prog-name{font-family:‘Noto Serif JP’,serif;font-size:1.05rem;font-weight:500;margin-bottom:.8rem;color:var(–charcoal)}
+.prog-target{display:inline-block;font-size:.7rem;padding:3px 10px;border-radius:20px;margin-bottom:.8rem;letter-spacing:.05em}
+.bp1 .prog-target{background:var(–terracotta-pale);color:var(–terracotta)}
+.bp2 .prog-target{background:var(–sage-pale);color:var(–sage-dark)}
+.bp3 .prog-target{background:var(–sky-pale);color:#4a90b8}
+.prog-desc{font-size:.8rem;color:var(–mid);line-height:1.9;margin-bottom:1.2rem}
+.prog-more{font-size:.75rem;letter-spacing:.12em;color:var(–sage-dark);display:flex;align-items:center;gap:5px}
+.prog-card:hover .prog-more{gap:9px}
 
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 6vw 80px 8vw;
-  position: relative;
-}
+/* voices */
+.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:3rem}
+.voice-card{background:var(–warm-white);border-radius:16px;padding:32px 28px;position:relative;box-shadow:0 2px 20px rgba(100,70,40,.06)}
+.voice-card::before{content:’”’;font-family:‘Cormorant Garamond’,serif;font-size:5rem;color:var(–terracotta-pale);position:absolute;top:12px;left:20px;line-height:1}
+.voice-text{font-size:.83rem;line-height:2;color:var(–charcoal);position:relative;z-index:1;padding-top:1.5rem}
+.voice-author{display:flex;align-items:center;gap:10px;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(–border)}
+.voice-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.voice-name{font-size:.75rem;color:var(–light)}
 
-.hero-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.4em;
-  color: var(--terracotta);
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.2s forwards;
-}
+/* facilitator */
+.faci-section{background:linear-gradient(160deg,var(–sage-pale) 0%,var(–cream) 50%)}
+.faci-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.faci-visual{position:relative}
+.faci-photo{width:100%;border-radius:20px;overflow:hidden;height:460px}
+.faci-photo img{width:100%;height:100%;object-fit:cover}
+.faci-float{position:absolute;bottom:-20px;right:-20px;background:#fff;border-radius:16px;padding:20px 24px;box-shadow:0 8px 36px rgba(60,40,20,.12);max-width:200px}
+.faci-float-num{font-family:‘Cormorant Garamond’,serif;font-size:3rem;color:var(–sage-dark);line-height:1}
+.faci-float-text{font-size:.72rem;color:var(–mid);line-height:1.7;margin-top:4px}
+.faci-steps{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.faci-step{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(–border)}
+.faci-step:last-child{border-bottom:none}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(–sage-dark);color:#fff;font-family:‘Cormorant Garamond’,serif;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-title{font-family:‘Noto Serif JP’,serif;font-size:.9rem;font-weight:500;margin-bottom:4px}
+.step-desc{font-size:.78rem;color:var(–mid);line-height:1.8}
 
-.hero-title {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--charcoal);
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.4s forwards;
-}
-.hero-title em {
-  font-style: normal;
-  color: var(--sage-dark);
-}
+/* schedule */
+.sch-section{background:var(–warm-white)}
+.sch-tabs{display:flex;gap:3px;margin-bottom:3rem;background:var(–blush);border-radius:12px;padding:4px}
+.sch-tab{padding:10px 22px;font-size:.8rem;letter-spacing:.08em;border-radius:9px;cursor:pointer;transition:all .3s;border:none;font-family:‘Noto Sans JP’,sans-serif;background:none;color:var(–mid)}
+.sch-tab.active{background:#fff;color:var(–sage-dark);font-weight:500;box-shadow:0 2px 12px rgba(60,40,20,.08)}
+.sch-content{display:none}
+.sch-content.active{display:block;animation:fadeIn .3s ease}
+.sch-table{width:100%;border-collapse:collapse}
+.sch-table th{text-align:left;font-family:‘Cormorant Garamond’,serif;font-size:.78rem;letter-spacing:.22em;color:var(–light);padding:12px 20px;border-bottom:1.5px solid var(–border)}
+.sch-table td{padding:18px 20px;font-size:.83rem;border-bottom:1px solid rgba(180,160,140,.12);vertical-align:middle}
+.sch-table tr:hover td{background:var(–blush)}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;letter-spacing:.05em;margin-right:6px}
+.badge-bp1{background:var(–terracotta-pale);color:var(–terracotta)}
+.badge-bp2{background:var(–sage-pale);color:var(–sage-dark)}
+.badge-bp3{background:var(–sky-pale);color:#4a90b8}
+.badge-osaka{background:#fff0ea;color:#c07050}
+.badge-yokohama{background:#e8f0ff;color:#5070c0}
+.sch-note{margin-top:2rem;padding:20px 24px;background:var(–terracotta-pale);border-radius:12px;font-size:.8rem;color:var(–terracotta);line-height:1.8}
 
-.hero-sub {
-  font-size: 0.88rem;
-  color: var(--mid-gray);
-  line-height: 1.9;
-  max-width: 380px;
-  margin-bottom: 3rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.6s forwards;
-}
+/* about / kki */
+.about-section{background:var(–charcoal);color:#fff;padding:100px 8vw}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-label{font-family:‘Cormorant Garamond’,serif;font-size:.83rem;letter-spacing:.45em;color:var(–terracotta-light);margin-bottom:.9rem}
+.about-title{font-family:‘Noto Serif JP’,serif;font-size:clamp(1.5rem,2.2vw,2.2rem);font-weight:400;line-height:1.65;color:#fff;margin-bottom:1.6rem}
+.about-body{font-size:.85rem;color:rgba(255,255,255,.6);line-height:2.1}
+.about-body + .about-body{margin-top:1rem}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2.5rem}
+.pillar{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px}
+.pillar-icon{font-size:1.6rem;margin-bottom:.6rem}
+.pillar-name{font-family:‘Noto Serif JP’,serif;font-size:.85rem;color:rgba(255,255,255,.85);margin-bottom:4px}
+.pillar-text{font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.8}
+.about-right-photo{border-radius:16px;overflow:hidden;height:300px;margin-bottom:24px}
+.about-right-photo img{width:100%;height:100%;object-fit:cover}
+.message-block{background:rgba(255,255,255,.05);border-left:3px solid var(–terracotta-light);padding:24px 28px;border-radius:0 12px 12px 0;margin-top:2rem}
+.message-text{font-family:‘Noto Serif JP’,serif;font-size:.88rem;color:rgba(255,255,255,.75);line-height:2;font-style:italic}
+.message-sig{margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.45)}
 
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.8s forwards;
-}
+/* gyosei */
+.gyosei-section{background:linear-gradient(135deg,var(–sage-dark) 0%,#2d5040 100%);color:#fff;padding:80px 8vw}
+.gyosei-grid{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:center}
+.gyosei-points{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2rem}
+.gyosei-point{background:rgba(255,255,255,.1);border-radius:12px;padding:20px}
+.gp-icon{font-size:1.8rem;margin-bottom:.5rem}
+.gp-title{font-family:‘Noto Serif JP’,serif;font-size:.85rem;color:rgba(255,255,255,.9);margin-bottom:4px}
+.gp-text{font-size:.75rem;color:rgba(255,255,255,.55);line-height:1.8}
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 14px 32px;
-  background: var(--terracotta);
-  color: white;
-  text-decoration: none;
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
-  border-radius: 40px;
-  transition: all 0.3s;
-  box-shadow: 0 4px 20px rgba(192, 122, 90, 0.3);
-}
-.btn-primary:hover {
-  background: var(--sage-dark);
-  box-shadow: 0 6px 28px rgba(78, 122, 96, 0.35);
-  transform: translateY(-1px);
-}
+/* books */
+.books-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:2.5rem}
+.book-card{background:var(–warm-white);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.book-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(60,40,20,.12)}
+.book-cover{height:180px;overflow:hidden;position:relative;background:var(–blush)}
+.book-cover img{width:100%;height:100%;object-fit:cover}
+.book-cover-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.book-info{padding:16px}
+.book-title{font-family:‘Noto Serif JP’,serif;font-size:.82rem;font-weight:500;line-height:1.6;margin-bottom:6px}
+.book-author{font-size:.73rem;color:var(–light);margin-bottom:4px}
+.book-pub{font-size:.7rem;color:var(–terracotta)}
 
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 14px 28px;
-  border: 1px solid var(--light-gray);
-  color: var(--mid-gray);
-  text-decoration: none;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  border-radius: 40px;
-  transition: all 0.3s;
-}
-.btn-secondary:hover {
-  border-color: var(--sage);
-  color: var(--sage-dark);
-}
+/* forum */
+.forum-section{background:var(–sky-pale)}
+.forum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:2.5rem}
+.forum-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(80,120,160,.08);transition:transform .3s}
+.forum-card:hover{transform:translateY(-3px)}
+.forum-date{font-family:‘Cormorant Garamond’,serif;font-size:.8rem;letter-spacing:.1em;color:var(–sky);margin-bottom:.5rem}
+.forum-title{font-family:‘Noto Serif JP’,serif;font-size:.95rem;font-weight:500;margin-bottom:.6rem}
+.forum-text{font-size:.78rem;color:var(–mid);line-height:1.9}
 
-.hero-right {
-  position: relative;
-  background: linear-gradient(145deg, var(--blush) 0%, #e8d8cc 100%);
-  overflow: hidden;
-}
+/* news */
+.news-layout{display:grid;grid-template-columns:280px 1fr;gap:72px;align-items:start}
+.news-item{display:grid;grid-template-columns:88px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(–border);cursor:default;transition:opacity .2s}
+.news-item:hover{opacity:.7}
+.news-date{font-family:‘Cormorant Garamond’,serif;font-size:.8rem;letter-spacing:.05em;color:var(–light);padding-top:2px}
+.news-title{font-family:‘Noto Serif JP’,serif;font-size:.85rem;font-weight:500;color:var(–sage-dark);margin-bottom:4px}
+.news-text{font-size:.8rem;color:var(–mid);line-height:1.8}
 
-.hero-illustration {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* contact */
+.contact-section{background:linear-gradient(135deg,var(–sage) 0%,var(–sage-dark) 100%);color:#fff;padding:80px 8vw}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2rem}
+.contact-item{background:rgba(255,255,255,.1);border-radius:12px;padding:20px}
+.ci-label{font-size:.7rem;letter-spacing:.15em;color:rgba(255,255,255,.55);margin-bottom:6px}
+.ci-val{font-size:.88rem;color:#fff;line-height:1.6}
+.ci-val a{color:rgba(255,255,255,.85);text-decoration:none}
+.contact-form{background:rgba(255,255,255,.1);border-radius:16px;padding:32px}
+.form-group{margin-bottom:18px}
+.form-label{font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-bottom:6px;display:block}
+.form-input{width:100%;padding:12px 16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:.83rem;font-family:‘Noto Sans JP’,sans-serif;transition:border-color .2s;outline:none}
+.form-input::placeholder{color:rgba(255,255,255,.4)}
+.form-input:focus{border-color:rgba(255,255,255,.5)}
+textarea.form-input{height:120px;resize:vertical}
 
-/* Organic SVG illustration */
-.hero-blob {
-  width: 75%;
-  height: auto;
-  opacity: 0;
-  animation: fadeIn 1.2s 0.5s forwards;
-}
+/* membership */
+.member-section{background:var(–blush)}
+.member-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:2.5rem}
+.member-plan{background:#fff;border-radius:20px;padding:36px 28px;text-align:center;box-shadow:0 4px 24px rgba(100,70,40,.08);transition:transform .3s}
+.member-plan:hover{transform:translateY(-4px)}
+.member-plan.featured{background:var(–sage-dark);color:#fff}
+.plan-badge{display:inline-block;font-size:.7rem;padding:4px 12px;border-radius:20px;margin-bottom:1rem;background:var(–sage-pale);color:var(–sage-dark);letter-spacing:.08em}
+.member-plan.featured .plan-badge{background:rgba(255,255,255,.2);color:#fff}
+.plan-name{font-family:‘Noto Serif JP’,serif;font-size:1.1rem;margin-bottom:.5rem}
+.plan-fee{font-family:‘Cormorant Garamond’,serif;font-size:2.4rem;color:var(–terracotta);line-height:1;margin-bottom:.3rem}
+.member-plan.featured .plan-fee{color:var(–terracotta-light)}
+.plan-period{font-size:.73rem;color:var(–light);margin-bottom:1.5rem}
+.member-plan.featured .plan-period{color:rgba(255,255,255,.55)}
+.plan-features{list-style:none;text-align:left;margin-bottom:2rem}
+.plan-features li{font-size:.78rem;padding:8px 0;border-bottom:1px solid var(–border);display:flex;gap:8px;align-items:flex-start;line-height:1.6}
+.member-plan.featured .plan-features li{border-bottom-color:rgba(255,255,255,.1);color:rgba(255,255,255,.8)}
+.plan-features li::before{content:‘✓’;color:var(–sage);flex-shrink:0;font-weight:600}
+.member-plan.featured .plan-features li::before{color:var(–sage-light)}
 
-.hero-badge {
-  position: absolute;
-  bottom: 60px;
-  left: -20px;
-  background: white;
-  padding: 16px 24px;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(80,60,40,0.12);
-  font-size: 0.75rem;
-  max-width: 200px;
-  line-height: 1.6;
-  opacity: 0;
-  animation: slideIn 0.8s 1.2s forwards;
-}
-.hero-badge strong {
-  display: block;
-  color: var(--sage-dark);
-  font-family: 'Noto Serif JP', serif;
-  font-size: 0.85rem;
-  margin-bottom: 4px;
-}
+/* report */
+.report-section{}
+.report-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:3rem 0}
+.report-stat{background:var(–warm-white);padding:40px 28px;text-align:center}
+.report-stat:first-child{background:var(–sage-dark)}
+.report-num{font-family:‘Cormorant Garamond’,serif;font-size:3.2rem;line-height:1;margin-bottom:.4rem;color:var(–terracotta)}
+.report-stat:first-child .report-num{color:var(–sage-light)}
+.report-unit{font-size:.75rem}
+.report-label{font-size:.75rem;color:var(–mid);margin-top:.4rem;line-height:1.5}
+.report-stat:first-child .report-label{color:rgba(255,255,255,.6)}
 
-/* ── MARQUEE ── */
-.marquee-strip {
-  background: var(--sage);
-  padding: 14px 0;
-  overflow: hidden;
-}
-.marquee-inner {
-  display: flex;
-  gap: 3rem;
-  animation: marquee 25s linear infinite;
-  white-space: nowrap;
-}
-.marquee-inner span {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.85);
-  flex-shrink: 0;
-}
-.marquee-inner span::before {
-  content: '✦ ';
-  color: rgba(255,255,255,0.5);
-}
+/* footer */
+footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-en{font-family:‘Cormorant Garamond’,serif;font-size:1.4rem;letter-spacing:.4em;color:var(–terracotta-light);margin-bottom:6px}
+.footer-brand-jp{font-family:‘Noto Serif JP’,serif;font-size:.83rem;color:rgba(255,255,255,.7);margin-bottom:1rem;line-height:1.7}
+.footer-addr{font-size:.73rem;line-height:2}
+.gov-badge{display:inline-flex;align-items:center;gap:7px;margin-top:1.2rem;padding:7px 14px;border:1px solid rgba(255,255,255,.1);border-radius:8px;font-size:.7rem}
+.gov-badge::before{content:‘◎’;color:var(–sage-light)}
+.footer-col h5{font-family:‘Cormorant Garamond’,serif;font-size:.78rem;letter-spacing:.25em;color:rgba(255,255,255,.6);margin-bottom:1rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:7px}
+.footer-col a,.footer-col button{font-size:.73rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;background:none;border:none;cursor:pointer;font-family:‘Noto Sans JP’,sans-serif;padding:0}
+.footer-col a:hover,.footer-col button:hover{color:var(–terracotta-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;font-size:.7rem}
+.trademark-note{background:rgba(255,255,255,.04);border-radius:8px;padding:16px;margin-top:1.5rem;font-size:.7rem;line-height:1.9;border-left:2px solid rgba(255,255,255,.1)}
 
-/* ── SECTIONS ── */
-section { padding: 100px 8vw; }
+/* ─── REVEAL ANIMATION ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
 
-.section-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.4em;
-  color: var(--terracotta);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
+/* ─── KEYFRAMES ─── */
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ─── MOBILE ─── */
+@media(max-width:960px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.hero{grid-template-columns:1fr}
+.hero-right{height:50vw;min-height:260px}
+.prog-intro,.faci-layout,.about-layout,.contact-grid,.news-layout,.gyosei-grid{grid-template-columns:1fr}
+.prog-cards,.voices-grid,.books-grid,.member-plans,.report-stats,.forum-grid{grid-template-columns:1fr 1fr}
+.footer-top{grid-template-columns:1fr 1fr}
+.hero-stats{gap:1.2rem}
 }
-
-.section-title {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--charcoal);
-  margin-bottom: 2rem;
-}
-
-/* ── NEWS ── */
-.news-section {
-  background: var(--warm-white);
-}
-
-.news-layout {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.news-item {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 1.5rem;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(180,160,140,0.2);
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.2s;
-  opacity: 0;
-  animation: fadeUp 0.6s forwards;
-}
-.news-item:nth-child(1) { animation-delay: 0.1s; }
-.news-item:nth-child(2) { animation-delay: 0.2s; }
-.news-item:nth-child(3) { animation-delay: 0.3s; }
-.news-item:nth-child(4) { animation-delay: 0.4s; }
-.news-item:nth-child(5) { animation-delay: 0.5s; }
-.news-item:hover { opacity: 0.65; }
-
-.news-date {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  color: var(--light-gray);
-  padding-top: 3px;
+@media(max-width:600px){
+.prog-cards,.voices-grid,.books-grid,.member-plans,.report-stats,.forum-grid,.contact-info-grid,.about-pillars,.gyosei-points{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr}
+.sch-tabs{flex-wrap:wrap}
 }
 
-.news-text {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--charcoal);
-}
-.news-text strong {
-  display: block;
-  font-weight: 500;
-  color: var(--sage-dark);
-  margin-bottom: 4px;
-}
+/* mobile menu */
+.mobile-menu{position:fixed;inset:0;background:rgba(253,249,244,.97);z-index:300;display:none;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;backdrop-filter:blur(10px)}
+.mobile-menu.open{display:flex}
+.mobile-menu a,.mobile-menu button{font-family:‘Noto Serif JP’,serif;font-size:1.2rem;color:var(–charcoal);text-decoration:none;background:none;border:none;cursor:pointer;padding:4px 0}
+.mobile-close{position:absolute;top:24px;right:5vw;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(–mid)}
+</style>
 
-/* ── PROGRAMS ── */
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 3rem;
-}
-
-.program-card {
-  background: var(--warm-white);
-  padding: 48px 36px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-.program-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--sage-light);
-  transform: scaleX(0);
-  transition: transform 0.4s;
-}
-.program-card:hover { background: var(--blush); }
-.program-card:hover::before { transform: scaleX(1); }
-
-.program-tag {
-  display: inline-block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--terracotta-light);
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.program-name {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--charcoal);
-  margin-bottom: 1rem;
-}
-
-.program-desc {
-  font-size: 0.8rem;
-  color: var(--mid-gray);
-  line-height: 1.8;
-}
-
-.program-arrow {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: var(--sage-dark);
-  transition: transform 0.2s;
-}
-.program-card:hover .program-arrow { transform: translateX(4px); }
-
-/* ── ABOUT STRIP ── */
-.about-strip {
-  background: var(--charcoal);
-  color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-
-.about-left {
-  padding: 100px 8vw;
-}
-
-.about-left .section-label { color: var(--terracotta-light); }
-.about-left .section-title { color: white; }
-
-.about-body {
-  font-size: 0.87rem;
-  color: rgba(255,255,255,0.65);
-  line-height: 2;
-  max-width: 440px;
-}
-
-.about-right {
-  background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage) 100%);
-  padding: 100px 6vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.contact-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.4em;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 1.5rem;
-}
-
-.contact-info {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 0.9rem;
-  color: white;
-  line-height: 2.2;
-  margin-bottom: 2rem;
-}
-.contact-info a {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-}
-
-.btn-white {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 12px 28px;
-  border: 1px solid rgba(255,255,255,0.4);
-  color: white;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  border-radius: 40px;
-  transition: all 0.3s;
-}
-.btn-white:hover { background: rgba(255,255,255,0.15); }
-
-/* ── SCHEDULE ── */
-.schedule-section { background: var(--cream); }
-
-.schedule-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-}
-
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.schedule-table th {
-  text-align: left;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  color: var(--light-gray);
-  padding: 12px 24px;
-  border-bottom: 1px solid rgba(180,160,140,0.3);
-}
-.schedule-table td {
-  padding: 20px 24px;
-  font-size: 0.84rem;
-  border-bottom: 1px solid rgba(180,160,140,0.15);
-  color: var(--charcoal);
-  vertical-align: top;
-}
-.schedule-table tr:hover td { background: var(--blush); }
-
-.schedule-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  background: var(--sage-light);
-  color: white;
-  font-size: 0.7rem;
-  border-radius: 20px;
-  letter-spacing: 0.05em;
-  margin-right: 8px;
-}
-.schedule-badge.osaka { background: var(--terracotta-light); }
-
-/* ── FOOTER ── */
-footer {
-  background: #1e1e1e;
-  color: rgba(255,255,255,0.5);
-  padding: 60px 8vw 40px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.footer-brand {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-.footer-brand span {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.3em;
-  color: var(--terracotta-light);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.footer-address {
-  font-size: 0.75rem;
-  line-height: 1.9;
-}
-
-.footer-col h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.25em;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 1rem;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 8px; }
-.footer-col a {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--terracotta-light); }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.72rem;
-}
-
-.government-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.5);
-}
-.government-badge::before {
-  content: '◎';
-  color: var(--sage-light);
-}
-
-/* ── DIVIDER ── */
-.divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(180,160,140,0.3), transparent);
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ── SCROLL REVEAL ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ── MOBILE ── */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { min-height: 280px; }
-  .news-layout { grid-template-columns: 1fr; }
-  .programs-grid { grid-template-columns: 1fr; }
-  .about-strip { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .schedule-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-}
-```
-
-  </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ══════════════ NAV ══════════════ -->
 
 <nav id="navbar">
-  <a class="nav-logo" href="index.php">
-    <span>K K I</span>
-    こころの子育てインターねっと関西
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer;text-decoration:none">
+    <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#6b9478" stroke-width="1.5"/>
+      <circle cx="15" cy="14" r="5" fill="#c4785a" opacity=".7"/>
+      <path d="M8 30 Q15 22 22 30" stroke="#c4785a" stroke-width="1.5" fill="none" opacity=".7"/>
+      <circle cx="27" cy="22" r="3.5" fill="#6b9478" opacity=".8"/>
+      <path d="M22 32 Q27 26 32 32" stroke="#6b9478" stroke-width="1.5" fill="none" opacity=".8"/>
+      <path d="M19 17 Q23 14 25 19" stroke="#c8a882" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-en">KKI</span>
+      <span class="nav-logo-jp">こころの子育てインターねっと関西</span>
+    </div>
   </a>
   <ul class="nav-links">
-    <li><a href="kki.php">KKIについて</a></li>
-    <li><a href="programs.php">プログラム</a></li>
-    <li><a href="kouza.php">養成講座</a></li>
-    <li><a href="forum.php">フォーラム</a></li>
-    <li><a href="books.php">書籍案内</a></li>
+    <li><button onclick="showPage('about')">KKIについて</button></li>
+    <li><button onclick="showPage('programs')">プログラム</button></li>
+    <li><button onclick="showPage('schedule')">養成講座</button></li>
+    <li><button onclick="showPage('forum')">フォーラム</button></li>
+    <li><button onclick="showPage('books')">書籍案内</button></li>
+    <li><button onclick="showPage('membership')">入会案内</button></li>
   </ul>
-  <a class="nav-cta" href="otoiawase.php">お問合せ</a>
+  <button class="nav-cta" onclick="showPage('contact')">お問合せ</button>
+  <div class="hamburger" id="hamburgerBtn" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- Mobile Menu -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <button onclick="showPage('home');closeMobileMenu()">ホーム</button>
+  <button onclick="showPage('about');closeMobileMenu()">KKIについて</button>
+  <button onclick="showPage('programs');closeMobileMenu()">プログラム</button>
+  <button onclick="showPage('schedule');closeMobileMenu()">養成講座</button>
+  <button onclick="showPage('forum');closeMobileMenu()">フォーラム</button>
+  <button onclick="showPage('books');closeMobileMenu()">書籍案内</button>
+  <button onclick="showPage('membership');closeMobileMenu()">入会案内</button>
+  <button onclick="showPage('contact');closeMobileMenu()">お問合せ</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════ -->
+
+<div class="page active" id="page-home">
 
 <!-- HERO -->
 
-<section class="hero" style="padding:0;">
+<section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">NPO法人 / こども家庭庁認定事業</p>
+    <p class="hero-eyebrow">NPO法人 ／ こども家庭庁認定事業</p>
     <h1 class="hero-title">
-      子育てに、<em>共感</em>の輪を。<br>
-      親と子の絆を<br>地域で育む。
+      <em>子育てに、</em><br>
+      共感の輪を。<br>
+      <span class="accent">親と子の絆</span>を<br>地域で育む。
     </h1>
-    <p class="hero-sub">
-      こころの子育てインターねっと関西（KKI）は、子育てを地域で支える社会づくりを目指して、親子支援プログラムの開発・実施と、ファシリテーター人材の育成に取り組んでいます。
-    </p>
+    <p class="hero-body">こころの子育てインターねっと関西（KKI）は、科学的根拠に基づいた子育て支援プログラムの開発・普及と、地域でその輪を広げるファシリテーターの育成に取り組む NPO 法人です。</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="bp.php">▸ BPプログラムとは</a>
-      <a class="btn-secondary" href="kouza.php">養成講座スケジュール →</a>
+      <button class="btn-p" onclick="showPage('programs')">▸ BPプログラムとは</button>
+      <button class="btn-s" onclick="showPage('schedule')">講座スケジュール →</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">50+</span>
+        <span class="stat-label">養成講座 開催期</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2</span>
+        <span class="stat-label">開催会場（大阪・横浜）</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">25+</span>
+        <span class="stat-label">活動年数</span>
+      </div>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-illustration">
-      <!-- Organic illustration -->
-      <svg class="hero-blob" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="g1" cx="50%" cy="40%" r="55%">
-            <stop offset="0%" stop-color="#fff9f4" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#e8cfc0" stop-opacity="0.3"/>
-          </radialGradient>
-          <radialGradient id="g2" cx="60%" cy="55%" r="45%">
-            <stop offset="0%" stop-color="#c07a5a" stop-opacity="0.15"/>
-            <stop offset="100%" stop-color="#c07a5a" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <!-- Large soft circle -->
-        <circle cx="250" cy="220" r="170" fill="url(#g1)"/>
-        <circle cx="310" cy="300" r="120" fill="url(#g2)"/>
-        <!-- Parent figure -->
-        <circle cx="210" cy="140" r="34" fill="#c07a5a" opacity="0.6"/>
-        <path d="M180 240 Q210 280 240 240 L255 340 Q210 360 165 340 Z" fill="#c07a5a" opacity="0.4"/>
-        <!-- Baby figure -->
-        <circle cx="280" cy="240" r="22" fill="#7a9e87" opacity="0.7"/>
-        <ellipse cx="280" cy="290" rx="26" ry="34" fill="#7a9e87" opacity="0.4"/>
-        <!-- Connecting arc -->
-        <path d="M220 165 Q260 150 268 225" stroke="#d4b896" stroke-width="2" fill="none" stroke-dasharray="6,6" opacity="0.7"/>
-        <!-- Decorative dots -->
-        <circle cx="150" cy="340" r="5" fill="#b8965a" opacity="0.4"/>
-        <circle cx="360" cy="150" r="8" fill="#a8c4b0" opacity="0.5"/>
-        <circle cx="380" cy="320" r="4" fill="#c07a5a" opacity="0.3"/>
-        <circle cx="130" cy="180" r="6" fill="#a8c4b0" opacity="0.4"/>
-        <!-- Circle outline accents -->
-        <circle cx="250" cy="220" r="195" stroke="#d4b896" stroke-width="1" opacity="0.25" fill="none" stroke-dasharray="4,8"/>
-        <circle cx="250" cy="220" r="220" stroke="#a8c4b0" stroke-width="0.5" opacity="0.2" fill="none"/>
-        <!-- Leaf shapes -->
-        <ellipse cx="170" cy="320" rx="18" ry="8" fill="#7a9e87" opacity="0.3" transform="rotate(-30 170 320)"/>
-        <ellipse cx="345" cy="360" rx="14" ry="6" fill="#7a9e87" opacity="0.25" transform="rotate(20 345 360)"/>
-        <!-- Text -->
-        <text x="250" y="430" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="13" fill="#b8965a" opacity="0.6" letter-spacing="6">親子の絆づくりプログラム</text>
-      </svg>
+    <div class="hero-photo-grid">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80" alt="親子"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=80" alt="赤ちゃん"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1520013817300-1f4c1cb245ef?w=600&q=80" alt="子育て"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80" alt="家族"></div>
     </div>
+    <div class="hero-overlay"></div>
     <div class="hero-badge">
+      <div class="hero-badge-icon">🏛️</div>
       <strong>こども家庭庁</strong>
-      「親子関係形成支援事業」として認定されたBPプログラム
+      <span>「親子関係形成支援事業」として認定されたBPプログラムです</span>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    <span>BP1プログラム「赤ちゃんがきた！」</span>
-    <span>BP2プログラム「きょうだいが生まれた！」</span>
-    <span>BP3プログラム「幼児とともに！」</span>
-    <span>ファシリテーター養成講座 大阪・横浜</span>
-    <span>こども家庭庁 親子関係形成支援事業</span>
-    <span>BP1プログラム「赤ちゃんがきた！」</span>
-    <span>BP2プログラム「きょうだいが生まれた！」</span>
-    <span>BP3プログラム「幼児とともに！」</span>
-    <span>ファシリテーター養成講座 大阪・横浜</span>
-    <span>こども家庭庁 親子関係形成支援事業</span>
+<div class="marquee">
+  <div class="marquee-track">
+    <span>BP1「赤ちゃんがきた！」</span><span class="dot">✦</span>
+    <span>BP2「きょうだいが生まれた！」</span><span class="dot">✦</span>
+    <span>BP3「幼児とともに！」</span><span class="dot">✦</span>
+    <span>ファシリテーター養成講座 大阪・横浜</span><span class="dot">✦</span>
+    <span>こども家庭庁 親子関係形成支援事業</span><span class="dot">✦</span>
+    <span>BP1「赤ちゃんがきた！」</span><span class="dot">✦</span>
+    <span>BP2「きょうだいが生まれた！」</span><span class="dot">✦</span>
+    <span>BP3「幼児とともに！」</span><span class="dot">✦</span>
+    <span>ファシリテーター養成講座 大阪・横浜</span><span class="dot">✦</span>
+    <span>こども家庭庁 親子関係形成支援事業</span><span class="dot">✦</span>
   </div>
 </div>
 
-<!-- PROGRAMS -->
+<!-- PROGRAMS PREVIEW -->
 
-<section>
-  <p class="section-label reveal">Programs</p>
-  <h2 class="section-title reveal">KKI子育て支援プログラム</h2>
-  <div class="programs-grid reveal">
-    <a class="program-card" href="bp1.php">
-      <span class="program-tag">BP1</span>
-      <div class="program-name">赤ちゃんがきた！</div>
-      <p class="program-desc">初めての赤ちゃんを迎えた家族向けプログラム。育児への不安を和らげ、親としての自信を育みます。</p>
-      <span class="program-arrow">詳しく見る →</span>
-    </a>
-    <a class="program-card" href="bp2.php">
-      <span class="program-tag">BP2</span>
-      <div class="program-name">きょうだいが生まれた！</div>
-      <p class="program-desc">第2子以降の赤ちゃんを迎える家族向け。上の子の心のケアと新しい家族のバランスをサポートします。</p>
-      <span class="program-arrow">詳しく見る →</span>
-    </a>
-    <a class="program-card" href="bp3.php">
-      <span class="program-tag">BP3</span>
-      <div class="program-name">幼児とともに！</div>
-      <p class="program-desc">1歳〜就学前の幼児とのかかわり方を学ぶプログラム。子どもの発達に合わせた関わり方を実践的に学べます。</p>
-      <span class="program-arrow">詳しく見る →</span>
-    </a>
+<section class="sec">
+  <div class="reveal">
+    <p class="sec-label">Programs</p>
+    <h2 class="sec-title">BPプログラムとは</h2>
+    <p class="sec-sub">「親子の絆づくりプログラム（BPプログラム）」は、赤ちゃんの誕生を迎える家族が、安心して子育てを始められるよう設計されたグループ学習プログラムです。</p>
   </div>
-
-  <div style="margin-top: 3rem; padding: 32px 36px; background: var(--blush); border-radius: 12px;" class="reveal">
-    <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-      <div style="font-family:'Noto Serif JP',serif; font-size:0.9rem; color:var(--charcoal);">
-        育休中でも参加できる育児プログラム
-      </div>
-      <a href="docs/bp_program.pdf" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--terracotta);text-decoration:none;border:1px solid var(--terracotta-light);padding:8px 18px;border-radius:40px;transition:all 0.2s;" onmouseover="this.style.background='var(--terracotta)';this.style.color='white';" onmouseout="this.style.background='transparent';this.style.color='var(--terracotta)';">
-        ↓ パンフレットをダウンロード
-      </a>
-    </div>
+  <div class="prog-cards reveal" style="margin-top:2.5rem">
+    <button class="prog-card bp1" onclick="showPage('programs');setTimeout(()=>switchProgTab('bp1'),50)">
+      <svg class="prog-icon" viewBox="0 0 64 64"><circle cx="32" cy="18" r="10" fill="#c4785a" opacity=".3"/><path d="M16 50 Q32 36 48 50" fill="#c4785a" opacity=".3"/><circle cx="32" cy="32" r="6" fill="#c4785a" opacity=".6"/><path d="M24 44 Q32 38 40 44" stroke="#c4785a" stroke-width="2" fill="none" opacity=".8"/></svg>
+      <div class="prog-num">BP1</div>
+      <div class="prog-name">赤ちゃんがきた！</div>
+      <span class="prog-target">はじめての赤ちゃん</span>
+      <p class="prog-desc">第1子誕生を迎えるパパ・ママへ。不安を和らげ、親としての自信を育む2日間プログラム。</p>
+      <span class="prog-more">詳しく見る <span>→</span></span>
+    </button>
+    <button class="prog-card bp2" onclick="showPage('programs');setTimeout(()=>switchProgTab('bp2'),50)">
+      <svg class="prog-icon" viewBox="0 0 64 64"><circle cx="22" cy="16" r="8" fill="#6b9478" opacity=".35"/><circle cx="42" cy="22" r="6" fill="#6b9478" opacity=".25"/><path d="M12 46 Q22 34 32 46" fill="#6b9478" opacity=".35"/><path d="M32 46 Q42 36 52 46" fill="#6b9478" opacity=".25"/></svg>
+      <div class="prog-num">BP2</div>
+      <div class="prog-name">きょうだいが生まれた！</div>
+      <span class="prog-target">第2子以降の赤ちゃん</span>
+      <p class="prog-desc">上の子の心のケアと、新しい家族のバランスを大切にした参加体験型プログラム。</p>
+      <span class="prog-more">詳しく見る <span>→</span></span>
+    </button>
+    <button class="prog-card bp3" onclick="showPage('programs');setTimeout(()=>switchProgTab('bp3'),50)">
+      <svg class="prog-icon" viewBox="0 0 64 64"><circle cx="32" cy="16" r="8" fill="#8fb8d0" opacity=".3"/><rect x="20" y="30" width="24" height="18" rx="4" fill="#8fb8d0" opacity=".25"/><circle cx="22" cy="28" r="5" fill="#8fb8d0" opacity=".4"/><circle cx="42" cy="28" r="5" fill="#8fb8d0" opacity=".4"/></svg>
+      <div class="prog-num">BP3</div>
+      <div class="prog-name">幼児とともに！</div>
+      <span class="prog-target">1歳〜就学前の幼児</span>
+      <p class="prog-desc">幼児期の子どもとのかかわり方を実践的に学ぶ。遊びを通じた発達支援の視点も。</p>
+      <span class="prog-more">詳しく見る <span>→</span></span>
+    </button>
+  </div>
+  <div style="text-align:center;margin-top:2rem" class="reveal">
+    <a href="docs/bp_program.pdf" style="display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--terracotta);border:1.5px solid var(--terracotta-light);padding:10px 24px;border-radius:40px;text-decoration:none;transition:all .3s" onmouseover="this.style.background='var(--terracotta)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--terracotta)'">
+      📄 プログラムパンフレットをダウンロード
+    </a>
   </div>
 </section>
 
@@ -795,218 +492,769 @@ footer {
 
 <!-- NEWS -->
 
-<section class="news-section">
+<section class="sec" style="background:var(--warm-white)">
   <div class="news-layout">
     <div class="reveal">
-      <p class="section-label">News</p>
-      <h2 class="section-title">お知らせ</h2>
-      <p style="font-size:0.83rem;color:var(--mid-gray);line-height:1.9;">最新の養成講座スケジュールや研修会の情報をお届けします。</p>
+      <p class="sec-label">News</p>
+      <h2 class="sec-title">お知らせ</h2>
+      <p style="font-size:.83rem;color:var(--mid);line-height:2">最新の養成講座・研修会情報をお届けします。</p>
       <br>
-      <a class="btn-secondary" href="kouza.php" style="margin-top:1rem;display:inline-flex;">すべて見る →</a>
+      <button class="btn-s" onclick="showPage('schedule')" style="margin-top:.5rem">講座一覧へ →</button>
     </div>
-    <div class="news-list">
-      <a class="news-item" href="kouza.php">
+    <div>
+      <div class="news-item reveal">
         <span class="news-date">2025.12.22</span>
-        <div class="news-text">
-          <strong>2026年度 各種養成講座スケジュール決定</strong>
-          BP1・BP2・BP3ファシリテーター養成講座の2026年度開催日程が決まりました。大阪・横浜の両会場で受付を開始しています。
-        </div>
-      </a>
-      <a class="news-item" href="kouza.php">
+        <div><div class="news-title">2026年度 各種養成講座スケジュール決定・受付開始</div><p class="news-text">BP1・BP2/3ファシリテーター養成講座の2026年度全日程が決まりました。大阪・横浜の両会場でお申込みを受け付けています。</p></div>
+      </div>
+      <div class="news-item reveal reveal-d1">
         <span class="news-date">2025.4.2</span>
-        <div class="news-text">
-          <strong>大阪会場 BP1追加講座の開講決定</strong>
-          7月大阪会場が定員に達したため、追加講座（第46期）を2025年7月25日〜26日に開講します。
-        </div>
-      </a>
-      <a class="news-item" href="kouza.php">
+        <div><div class="news-title">大阪会場 BP1追加講座（第46期）開講決定</div><p class="news-text">7月の大阪会場が定員に達したため追加講座を設けます。2025年7月25日〜26日、ご希望の方はお申込みください。</p></div>
+      </div>
+      <div class="news-item reveal reveal-d2">
         <span class="news-date">2025.2.27</span>
-        <div class="news-text">
-          <strong>BP1養成講座 2025年度後半日程のお知らせ</strong>
-          大阪会場（第47期）2025年11月、横浜会場（第28期）2025年12月の受付を開始しました。
-        </div>
-      </a>
-      <a class="news-item" href="kouza.php">
+        <div><div class="news-title">BP1養成講座 2025年度後半日程のお知らせ</div><p class="news-text">大阪（第47期）11月、横浜（第28期）12月の受付を開始しました。</p></div>
+      </div>
+      <div class="news-item reveal reveal-d3">
         <span class="news-date">2024.12.26</span>
-        <div class="news-text">
-          <strong>BP2・BP3養成講座 2025年度日程発表</strong>
-          大阪会場（第7期）・横浜会場（第6期）の日程が決まりました。
-        </div>
-      </a>
+        <div><div class="news-title">BP2・BP3養成講座 2025年度日程発表</div><p class="news-text">大阪（第7期）・横浜（第6期）の開催日程が決まりました。受付開始しています。</p></div>
+      </div>
+      <div class="news-item reveal">
+        <span class="news-date">2024.12.18</span>
+        <div><div class="news-title">BP1養成講座 2025年度前半日程のお知らせ</div><p class="news-text">大阪（第46期）・横浜（第27期）の2025年7月開催分の受付を開始しました。</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SCHEDULE -->
+<!-- VOICES -->
 
-<section class="schedule-section">
-  <div class="schedule-header reveal">
-    <div>
-      <p class="section-label">Schedule</p>
-      <h2 class="section-title">2026年度 養成講座スケジュール</h2>
+<section class="sec">
+  <div class="reveal">
+    <p class="sec-label">Voices</p>
+    <h2 class="sec-title">参加したママ・パパの声</h2>
+  </div>
+  <div class="voices-grid">
+    <div class="voice-card reveal">
+      <p class="voice-text">プログラムに参加して、子育ての不安がすっと軽くなりました。同じ状況のパパ・ママと話し合えたのが一番の宝物です。</p>
+      <div class="voice-author">
+        <img class="voice-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="">
+        <span class="voice-name">BP1参加・30代ママ</span>
+      </div>
     </div>
-    <a class="btn-secondary" href="kouza.php">詳細・お申込み →</a>
+    <div class="voice-card reveal reveal-d1">
+      <p class="voice-text">上の子がやきもちをやいてどう接すればいいか悩んでいました。BP2で学んだことで気持ちが楽になり、子どもの変化も感じられるようになりました。</p>
+      <div class="voice-author">
+        <img class="voice-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80" alt="">
+        <span class="voice-name">BP2参加・30代ママ</span>
+      </div>
+    </div>
+    <div class="voice-card reveal reveal-d2">
+      <p class="voice-text">パパ同士で語り合える機会はなかなかなくて。育休中に参加して、子育てが楽しくなりました。ファシリテーターの先生が温かくて安心できました。</p>
+      <div class="voice-author">
+        <img class="voice-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="">
+        <span class="voice-name">BP1参加・30代パパ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT STATS -->
+
+<section class="report-section sec" style="padding-top:0">
+  <div class="reveal">
+    <p class="sec-label">Results</p>
+    <h2 class="sec-title">プログラムの実施状況と効果</h2>
+    <p class="sec-sub">科学的なアセスメントに基づき、参加者の変化を継続的に追跡・評価しています。</p>
+  </div>
+  <div class="report-stats reveal">
+    <div class="report-stat">
+      <div class="report-num">92<span class="report-unit" style="font-size:1.2rem;color:var(--sage-light)">%</span></div>
+      <div class="report-label" style="color:rgba(255,255,255,.6)">「子育てに自信がついた」と回答した参加者の割合</div>
+    </div>
+    <div class="report-stat">
+      <div class="report-num">88<span class="report-unit">%</span></div>
+      <div class="report-label">「育児の不安が減った」と感じた参加者</div>
+    </div>
+    <div class="report-stat">
+      <div class="report-num">95<span class="report-unit">%</span></div>
+      <div class="report-label">「プログラムに満足した」と回答した参加者</div>
+    </div>
+    <div class="report-stat">
+      <div class="report-num">200<span class="report-unit">+</span></div>
+      <div class="report-label">全国各地での BP プログラム実施自治体・施設数</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-home -->
+
+<!-- ══════════════════════════════════════
+     PAGE: PROGRAMS
+══════════════════════════════════════ -->
+
+<div class="page" id="page-programs">
+<section class="sec" style="padding-top:120px">
+  <div class="reveal">
+    <p class="sec-label">Programs</p>
+    <h2 class="sec-title">KKI 子育て支援プログラム</h2>
   </div>
 
+  <div class="prog-intro reveal">
+    <div class="prog-intro-text">
+      <h3 style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;margin-bottom:1.2rem;color:var(--sage-dark)">BPプログラムとは何ですか？</h3>
+      <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">「親子の絆づくりプログラム（BP プログラム）」は、赤ちゃんの誕生や乳幼児期の育ちに合わせて設計された、参加体験型グループ学習プログラムです。</p>
+      <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">子育ての孤立を防ぎ、地域のつながりを育むことを目的として開発されました。プログラムの内容は科学的研究に基づいており、こども家庭庁の「親子関係形成支援事業」にも位置づけられています。</p>
+      <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">育休中のパパも一緒に参加できるので、夫婦で子育てを学ぶ機会としても活用されています。</p>
+      <div style="padding:20px 24px;background:var(--terracotta-pale);border-radius:12px;font-size:.8rem;color:var(--terracotta);line-height:1.9">
+        <strong>商標登録について：</strong>「親子の絆づくりプログラム"赤ちゃんがきた！"」「BPプログラム」は登録商標です。BPプログラムを模した実施・アレンジ・一部使用等はご遠慮ください。
+      </div>
+    </div>
+    <div class="prog-intro-visual">
+      <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=800&q=80" alt="親子のプログラム">
+      <div class="prog-intro-caption">グループで学び合う、温かなプログラムの場</div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+
+  <div style="display:flex;gap:3px;margin:3rem 0 0;background:var(--blush);border-radius:12px;padding:4px;width:fit-content" class="reveal">
+    <button class="sch-tab active" id="prog-tab-bp1" onclick="switchProgTab('bp1')">BP1</button>
+    <button class="sch-tab" id="prog-tab-bp2" onclick="switchProgTab('bp2')">BP2</button>
+    <button class="sch-tab" id="prog-tab-bp3" onclick="switchProgTab('bp3')">BP3</button>
+    <button class="sch-tab" id="prog-tab-faci" onclick="switchProgTab('faci')">ファシリテーター</button>
+  </div>
+
+  <!-- BP1 -->
+
+  <div class="sch-content active" id="prog-content-bp1" style="margin-top:2rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+      <div>
+        <span class="badge badge-bp1" style="font-size:.8rem;padding:5px 14px;margin-bottom:1rem;display:inline-block">BP1 プログラム</span>
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:400;margin-bottom:.5rem">赤ちゃんがきた！</h3>
+        <p style="font-size:.8rem;color:var(--terracotta);margin-bottom:1.5rem">— はじめての赤ちゃんを迎える家族向け —</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">第1子の誕生を控えた、または生後間もない時期のパパ・ママを対象に実施するグループ学習プログラムです。</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">「赤ちゃんの行動の意味を理解する」「パートナーとの関係を大切にしながら子育てする」「地域のサポートを活用する」といったテーマについて、同じ時期の仲間とともに学び合います。</p>
+        <h4 style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:1rem;color:var(--charcoal)">プログラムの特徴</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem">
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1rem;flex-shrink:0">●</span>参加者同士のグループワーク中心で、安心して話し合える場を提供</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1rem;flex-shrink:0">●</span>育休取得中のパパも参加可能（夫婦での参加を推奨）</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1rem;flex-shrink:0">●</span>計2日間（合計約12時間）の集中プログラム</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1rem;flex-shrink:0">●</span>全国の自治体・子育て支援センターで実施中</li>
+        </ul>
+        <button class="btn-p" onclick="showPage('schedule')">養成講座スケジュールを見る</button>
+      </div>
+      <div>
+        <div style="border-radius:16px;overflow:hidden;height:280px;margin-bottom:1.5rem">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=700&q=80" alt="BP1" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="background:var(--terracotta-pale);border-radius:12px;padding:24px">
+          <h4 style="font-family:'Noto Serif JP',serif;font-size:.88rem;margin-bottom:1rem;color:var(--charcoal)">ファシリテーター資格</h4>
+          <p style="font-size:.78rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">2日間の「BP1ファシリテーター養成講座」を受講し、認定を受けることで、地域でプログラムを実施できます。</p>
+          <a href="docs/bp1fa_renewal.php" style="font-size:.78rem;color:var(--terracotta);text-decoration:underline">登録更新について</a>
+        </div>
+        <div style="background:var(--warm-white);border-radius:12px;padding:24px;margin-top:1rem">
+          <h4 style="font-family:'Noto Serif JP',serif;font-size:.88rem;margin-bottom:.8rem;color:var(--charcoal)">📀 BP1プログラム解説DVD</h4>
+          <p style="font-size:.78rem;color:var(--mid);line-height:1.8">プログラムの内容や進め方をわかりやすく解説したDVDを販売しています。ご希望の方はお問合せください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BP2 -->
+
+  <div class="sch-content" id="prog-content-bp2" style="margin-top:2rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+      <div>
+        <span class="badge badge-bp2" style="font-size:.8rem;padding:5px 14px;margin-bottom:1rem;display:inline-block">BP2 プログラム</span>
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:400;margin-bottom:.5rem">きょうだいが生まれた！</h3>
+        <p style="font-size:.8rem;color:var(--sage-dark);margin-bottom:1.5rem">— 第2子以降の赤ちゃんを迎える家族向け —</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">第2子以降の赤ちゃんを迎える際の特有の悩みやチャレンジに対応したプログラムです。</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">「上の子への対応」「新しい家族関係のバランス」「きょうだい間の関係づくり」など、BP1とは異なるテーマを扱います。BP1経験者はもちろん、初めての方も参加できます。</p>
+        <h4 style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:1rem">プログラムの特徴</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem">
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--sage-dark);font-size:1rem;flex-shrink:0">●</span>上の子の気持ちの理解と適切な関わり方を学ぶ</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--sage-dark);font-size:1rem;flex-shrink:0">●</span>複数の子どもを持つ親同士のグループ交流</li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.83rem;color:var(--mid);line-height:1.8"><span style="color:var(--sage-dark);font-size:1rem;flex-shrink:0">●</span>BP2・BP3ファシリテーターが担当</li>
+        </ul>
+        <button class="btn-p" style="background:var(--sage-dark)" onclick="showPage('schedule')">養成講座スケジュールを見る</button>
+      </div>
+      <div>
+        <div style="border-radius:16px;overflow:hidden;height:280px;margin-bottom:1.5rem">
+          <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=700&q=80" alt="BP2" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="background:var(--sage-pale);border-radius:12px;padding:24px">
+          <h4 style="font-family:'Noto Serif JP',serif;font-size:.88rem;margin-bottom:.8rem">BP2・BP3 共通ファシリテーター</h4>
+          <p style="font-size:.78rem;color:var(--mid);line-height:1.9">BP2とBP3は同じ養成講座で資格を取得します。2日間の「BP2・BP3ファシリテーター養成講座」を受講してください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BP3 -->
+
+  <div class="sch-content" id="prog-content-bp3" style="margin-top:2rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+      <div>
+        <span class="badge badge-bp3" style="font-size:.8rem;padding:5px 14px;margin-bottom:1rem;display:inline-block">BP3 プログラム</span>
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:400;margin-bottom:.5rem">幼児とともに！</h3>
+        <p style="font-size:.8rem;color:#4a90b8;margin-bottom:1.5rem">— 1歳〜就学前の幼児を持つ家族向け —</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">1歳から就学前の幼児を持つ家族が対象のプログラムです。</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">「言葉の発達」「遊びを通じた関わり」「自律性を育む関わり方」「園・保育との連携」など、幼児期特有の発達課題に沿ったテーマを扱います。</p>
+        <h4 style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:1rem">対象年齢</h4>
+        <div style="background:var(--sky-pale);border-radius:12px;padding:20px;margin-bottom:2rem;font-size:.83rem;color:var(--mid);line-height:1.9">
+          お子さんが <strong style="color:#4a90b8">1歳〜就学前（5・6歳）</strong> のご家族を対象としています。<br>
+          第2子以降のお子さんでも参加可能です。
+        </div>
+        <button class="btn-p" style="background:#4a90b8" onclick="showPage('schedule')">養成講座スケジュールを見る</button>
+      </div>
+      <div>
+        <div style="border-radius:16px;overflow:hidden;height:280px;margin-bottom:1.5rem">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=700&q=80" alt="BP3" style="width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FACI -->
+
+  <div class="sch-content" id="prog-content-faci" style="margin-top:2rem">
+    <div class="faci-layout">
+      <div class="faci-visual">
+        <div class="faci-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="ファシリテーター"></div>
+        <div class="faci-float">
+          <div class="faci-float-num">50<span style="font-size:1.2rem">+</span></div>
+          <div class="faci-float-text">全国で活躍するBPファシリテーター養成講座の開催期数</div>
+        </div>
+      </div>
+      <div>
+        <p class="sec-label">Facilitator</p>
+        <h2 class="sec-title">BPファシリテーターとは</h2>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:1.5rem">BPファシリテーターは、KKIが認定する子育て支援の専門家です。保健師・助産師・保育士・社会福祉士など、さまざまな専門職の方が取得しています。</p>
+        <p style="font-size:.85rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">養成講座を修了すると、地域の子育て支援センターや病院・行政施設でBPプログラムを実施できるようになります。</p>
+        <div class="faci-steps">
+          <div class="faci-step">
+            <div class="step-num">1</div>
+            <div><div class="step-title">養成講座に参加</div><div class="step-desc">2日間（合計約12時間）の集中講座。大阪・横浜の両会場で年複数回開催。</div></div>
+          </div>
+          <div class="faci-step">
+            <div class="step-num">2</div>
+            <div><div class="step-title">認定取得</div><div class="step-desc">講座修了後、KKIよりファシリテーター認定証を発行。</div></div>
+          </div>
+          <div class="faci-step">
+            <div class="step-num">3</div>
+            <div><div class="step-title">地域で実施</div><div class="step-desc">所属先やお住まいの地域でBPプログラムを実施。行政・病院・地域団体と連携。</div></div>
+          </div>
+          <div class="faci-step">
+            <div class="step-num">4</div>
+            <div><div class="step-title">登録更新・研修会</div><div class="step-desc">定期的な登録更新と研修会参加で、スキルをアップデートし続けられます。</div></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-p" onclick="showPage('schedule')">養成講座に申し込む</button>
+          <button class="btn-s" onclick="showPage('gyosei')">行政担当者の方へ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: SCHEDULE
+══════════════════════════════════════ -->
+
+<div class="page" id="page-schedule">
+<section class="sch-section sec" style="padding-top:120px">
   <div class="reveal">
-    <table class="schedule-table">
-      <thead>
-        <tr>
-          <th>期　　</th>
-          <th>プログラム</th>
-          <th>会　場</th>
-          <th>日　程</th>
-        </tr>
-      </thead>
+    <p class="sec-label">Schedule</p>
+    <h2 class="sec-title">ファシリテーター養成講座 開催日程</h2>
+    <p class="sec-sub">大阪・横浜の2会場で年間複数回開催。育休中の方や現職の支援者の方も受講いただけます。</p>
+  </div>
+
+  <div class="sch-tabs reveal" style="margin-top:2.5rem">
+    <button class="sch-tab active" onclick="switchSchTab('2026')">2026年度</button>
+    <button class="sch-tab" onclick="switchSchTab('2025')">2025年度</button>
+    <button class="sch-tab" onclick="switchSchTab('renewal')">登録更新・研修会</button>
+  </div>
+
+  <div class="sch-content active" id="sch-2026">
+    <div style="margin-bottom:1.5rem;display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem">
+      <span class="badge badge-osaka" style="font-size:.76rem;padding:5px 14px">● 大阪会場</span>
+      <span class="badge badge-yokohama" style="font-size:.76rem;padding:5px 14px">● 横浜会場</span>
+    </div>
+    <table class="sch-table reveal">
+      <thead><tr><th>期</th><th>プログラム</th><th>会場</th><th>日程</th><th>申込</th></tr></thead>
       <tbody>
-        <tr>
-          <td style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--light-gray);">第29期</td>
-          <td>
-            <span class="schedule-badge">BP1</span>
-            赤ちゃんがきた！
-          </td>
-          <td>横浜会場</td>
-          <td>2026年7月11日（土）〜12日（日）</td>
-        </tr>
-        <tr>
-          <td style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--light-gray);">第49期</td>
-          <td><span class="schedule-badge osaka">BP1</span>赤ちゃんがきた！</td>
-          <td>大阪会場</td>
-          <td>2026年7月24日（金）〜25日（土）</td>
-        </tr>
-        <tr>
-          <td style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--light-gray);">第6期</td>
-          <td><span class="schedule-badge">BP2/3</span>きょうだいが生まれた！ ／ 幼児とともに！</td>
-          <td>横浜会場</td>
-          <td>2026年9月4日（金）〜5日（土）</td>
-        </tr>
-        <tr>
-          <td style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--light-gray);">第8期</td>
-          <td><span class="schedule-badge osaka">BP2/3</span>きょうだいが生まれた！ ／ 幼児とともに！</td>
-          <td>大阪会場</td>
-          <td>2026年9月11日（金）〜12日（土）</td>
-        </tr>
-        <tr>
-          <td style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--light-gray);">第50期</td>
-          <td><span class="schedule-badge osaka">BP1</span>赤ちゃんがきた！</td>
-          <td>大阪会場</td>
-          <td>2026年11月28日（土）〜29日（日）</td>
-        </tr>
-        <tr>
-          <td style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--light-gray);">第30期</td>
-          <td><span class="schedule-badge">BP1</span>赤ちゃんがきた！</td>
-          <td>横浜会場</td>
-          <td>2026年12月12日（土）〜13日（日）</td>
-        </tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第29期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-yokohama">横浜</span></td><td>2026年 7月11日（土）〜12日（日）</td><td><button class="btn-p" style="padding:6px 14px;font-size:.72rem" onclick="showPage('contact')">申込む</button></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第49期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-osaka">大阪</span></td><td>2026年 7月24日（金）〜25日（土）</td><td><button class="btn-p" style="padding:6px 14px;font-size:.72rem" onclick="showPage('contact')">申込む</button></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第6期</td><td><span class="badge badge-bp2">BP2/3</span>きょうだいが生まれた！ ／ 幼児とともに！</td><td><span class="badge badge-yokohama">横浜</span></td><td>2026年 9月4日（金）〜5日（土）</td><td><button class="btn-p" style="padding:6px 14px;font-size:.72rem;background:var(--sage-dark)" onclick="showPage('contact')">申込む</button></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第8期</td><td><span class="badge badge-bp2">BP2/3</span>きょうだいが生まれた！ ／ 幼児とともに！</td><td><span class="badge badge-osaka">大阪</span></td><td>2026年 9月11日（金）〜12日（土）</td><td><button class="btn-p" style="padding:6px 14px;font-size:.72rem;background:var(--sage-dark)" onclick="showPage('contact')">申込む</button></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第50期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-osaka">大阪</span></td><td>2026年11月28日（土）〜29日（日）</td><td><button class="btn-p" style="padding:6px 14px;font-size:.72rem" onclick="showPage('contact')">申込む</button></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第30期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-yokohama">横浜</span></td><td>2026年12月12日（土）〜13日（日）</td><td><button class="btn-p" style="padding:6px 14px;font-size:.72rem" onclick="showPage('contact')">申込む</button></td></tr>
+      </tbody>
+    </table>
+    <div class="sch-note reveal">⚠️ 定員に達した場合はキャンセル待ちのご案内となります。お早めにお申込みください。詳細・お申込みはお問合せフォームまたはお電話にて承ります。</div>
+  </div>
+
+  <div class="sch-content" id="sch-2025">
+    <table class="sch-table reveal" style="margin-top:2rem">
+      <thead><tr><th>期</th><th>プログラム</th><th>会場</th><th>日程</th><th>状態</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第46期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-osaka">大阪</span></td><td>2025年 7月25日（金）〜26日（土）</td><td><span style="font-size:.75rem;color:var(--terracotta)">追加講座</span></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第27期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-yokohama">横浜</span></td><td>2025年 7月12日（土）〜13日（日）</td><td><span style="font-size:.75rem;color:var(--light)">終了</span></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第7期</td><td><span class="badge badge-bp2">BP2/3</span></td><td><span class="badge badge-osaka">大阪</span></td><td>2025年 8月9日（土）〜10日（日）</td><td><span style="font-size:.75rem;color:var(--light)">終了</span></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第6期</td><td><span class="badge badge-bp2">BP2/3</span></td><td><span class="badge badge-yokohama">横浜</span></td><td>2025年 8月29日（土）〜30日（日）</td><td><span style="font-size:.75rem;color:var(--light)">終了</span></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第47期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-osaka">大阪</span></td><td>2025年11月29日（土）〜30日（日）</td><td><span style="font-size:.75rem;color:var(--sage-dark)">受付中</span></td></tr>
+        <tr><td style="font-family:'Cormorant Garamond',serif;color:var(--light);font-size:1rem">第28期</td><td><span class="badge badge-bp1">BP1</span>赤ちゃんがきた！</td><td><span class="badge badge-yokohama">横浜</span></td><td>2025年12月13日（土）〜14日（日）</td><td><span style="font-size:.75rem;color:var(--sage-dark)">受付中</span></td></tr>
       </tbody>
     </table>
   </div>
-</section>
 
-<!-- ABOUT / CONTACT -->
-
-<div class="about-strip reveal">
-  <div class="about-left">
-    <p class="section-label">About</p>
-    <h2 class="section-title">子育てを、<br>地域の力で支える。</h2>
-    <p class="about-body">
-      NPO法人こころの子育てインターねっと関西（KKI）は、子育て家庭をあらゆる角度からサポートするため、証拠に基づいたプログラムの開発と、それを届けるファシリテーターの育成に力を入れています。<br><br>
-      こども家庭庁の「親子関係形成支援事業」として認定されたBPプログラムは、全国各地の行政・施設で採用されています。
-    </p>
-    <br><br>
-    <a class="btn-white" href="kki.php">KKIについて詳しく →</a>
-  </div>
-  <div class="about-right">
-    <p class="contact-label">Contact / Access</p>
-    <div class="contact-info">
-      NPO法人<br>
-      こころの子育てインターねっと関西（KKI）<br>
-      事務局<br><br>
-      〒636-0143<br>
-      奈良県生駒郡斑鳩町神南4-6-35<br>
-      <a href="tel:0745750298">電話 / FAX　0745-75-0298</a>
+  <div class="sch-content" id="sch-renewal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:2rem">
+      <div style="background:var(--warm-white);border-radius:16px;padding:32px">
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1rem;margin-bottom:1rem;color:var(--sage-dark)">BP1 ファシリテーター 登録更新</h3>
+        <p style="font-size:.8rem;color:var(--mid);line-height:1.9;margin-bottom:1.2rem">BP1ファシリテーター認定を継続するには、定期的な登録更新が必要です。更新手続きについてはKKI事務局へお問合せください。</p>
+        <button class="btn-s" onclick="showPage('contact')">更新についてお問合せ</button>
+      </div>
+      <div style="background:var(--warm-white);border-radius:16px;padding:32px">
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1rem;margin-bottom:1rem;color:var(--sage-dark)">BP2・BP3 ファシリテーター 登録更新</h3>
+        <p style="font-size:.8rem;color:var(--mid);line-height:1.9;margin-bottom:1.2rem">BP2・BP3ファシリテーターの登録更新についても、KKI事務局へご連絡ください。</p>
+        <button class="btn-s" onclick="showPage('contact')">更新についてお問合せ</button>
+      </div>
+      <div style="background:var(--sage-pale);border-radius:16px;padding:32px">
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1rem;margin-bottom:1rem;color:var(--sage-dark)">BP1 ファシリテーター 研修会</h3>
+        <p style="font-size:.8rem;color:var(--mid);line-height:1.9;margin-bottom:1.2rem">認定ファシリテーター向けのスキルアップ研修会を定期的に開催。最新の知見や事例を共有します。</p>
+        <button class="btn-s" onclick="showPage('contact')">研修会について問合せ</button>
+      </div>
+      <div style="background:var(--sage-pale);border-radius:16px;padding:32px">
+        <h3 style="font-family:'Noto Serif JP',serif;font-size:1rem;margin-bottom:1rem;color:var(--sage-dark)">BP2・BP3 ファシリテーター 研修会</h3>
+        <p style="font-size:.8rem;color:var(--mid);line-height:1.9;margin-bottom:1.2rem">BP2・BP3担当ファシリテーター向けの研修会も開催。グループファシリテーション技術を磨きます。</p>
+        <button class="btn-s" onclick="showPage('contact')">研修会について問合せ</button>
+      </div>
     </div>
-    <a class="btn-white" href="otoiawase.php">お問合せフォーム →</a>
+  </div>
+</section>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: ABOUT (KKI / MESSAGE / GYOSEI)
+══════════════════════════════════════ -->
+
+<div class="page" id="page-about">
+<div class="about-section reveal">
+  <div class="about-layout">
+    <div>
+      <p class="about-label">About KKI</p>
+      <h2 class="about-title">子育てを、<br>地域の力で<br>支える。</h2>
+      <p class="about-body">NPO法人こころの子育てインターねっと関西（KKI）は、子育て家庭を地域全体でサポートする社会づくりを目指して活動しています。</p>
+      <p class="about-body" style="margin-top:1rem">子育ての孤立や不安を解消するため、科学的エビデンスに裏付けられたプログラムの開発から実施、そして担い手となるファシリテーターの育成まで、一貫して取り組んでいます。</p>
+      <p class="about-body" style="margin-top:1rem">関西を拠点としながら、大阪・横浜の2会場で養成講座を開催し、全国各地への普及を続けています。</p>
+      <div class="about-pillars">
+        <div class="pillar"><div class="pillar-icon">🔬</div><div class="pillar-name">科学的根拠</div><div class="pillar-text">研究に基づいたプログラム設計と継続的な効果検証</div></div>
+        <div class="pillar"><div class="pillar-icon">🤝</div><div class="pillar-name">人材育成</div><div class="pillar-text">地域で活躍するファシリテーターを全国へ輩出</div></div>
+        <div class="pillar"><div class="pillar-icon">🏘️</div><div class="pillar-name">地域連携</div><div class="pillar-text">行政・医療・保育現場と連携した支援の輪</div></div>
+        <div class="pillar"><div class="pillar-icon">👶</div><div class="pillar-name">当事者目線</div><div class="pillar-text">参加者の声を活かしたプログラムの継続改善</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="about-right-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="KKI活動"></div>
+      <div class="message-block">
+        <p class="message-text">「子育てはひとりでするものではありません。地域に共感の輪が広がることで、親も子も、もっと生き生きと育ち合える社会を実現したいと考えています。」</p>
+        <p class="message-sig">— KKI 代表</p>
+      </div>
+      <div style="margin-top:2rem;padding:20px 24px;background:rgba(255,255,255,.06);border-radius:12px">
+        <p style="font-size:.75rem;color:rgba(255,255,255,.5);line-height:2">
+          NPO法人 こころの子育てインターねっと関西<br>
+          〒636-0143 奈良県生駒郡斑鳩町神南4-6-35<br>
+          Tel/Fax: 0745-75-0298
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- GYOSEI -->
+
+<div class="gyosei-section" id="gyosei-anchor">
+  <div class="gyosei-grid">
+    <div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:.83rem;letter-spacing:.4em;color:rgba(255,255,255,.5);margin-bottom:.8rem">For Officials</p>
+      <h2 style="font-family:'Noto Serif JP',serif;font-size:1.6rem;font-weight:400;line-height:1.65;color:#fff;margin-bottom:1.2rem">行政担当者の<br>みなさまへ</h2>
+      <p style="font-size:.83rem;color:rgba(255,255,255,.65);line-height:2;margin-bottom:2rem">BPプログラムは、こども家庭庁の「親子関係形成支援事業」として位置づけられており、自治体の子育て施策として導入が進んでいます。</p>
+      <button class="btn-w" onclick="showPage('contact')">導入についてお問合せ</button>
+    </div>
+    <div>
+      <div class="gyosei-points">
+        <div class="gyosei-point"><div class="gp-icon">📋</div><div class="gp-title">こども家庭庁認定</div><div class="gp-text">「親子関係形成支援事業」として国が認定したプログラム</div></div>
+        <div class="gyosei-point"><div class="gp-icon">🏫</div><div class="gp-title">全国実施実績</div><div class="gp-text">200以上の自治体・施設で導入されている信頼のプログラム</div></div>
+        <div class="gyosei-point"><div class="gp-icon">📊</div><div class="gp-title">効果測定</div><div class="gp-text">科学的なアセスメントツールによる実施効果の可視化</div></div>
+        <div class="gyosei-point"><div class="gp-icon">👩‍🏫</div><div class="gp-title">人材育成支援</div><div class="gp-text">自治体職員・支援者向けのファシリテーター養成講座</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: FORUM
+══════════════════════════════════════ -->
+
+<div class="page" id="page-forum">
+<section class="forum-section sec" style="padding-top:120px">
+  <div class="reveal">
+    <p class="sec-label">Forum & Events</p>
+    <h2 class="sec-title">セミナー・フォーラム</h2>
+    <p class="sec-sub">子育て・親支援に関するセミナーやシンポジウムを定期的に開催しています。</p>
+  </div>
+  <div class="forum-grid reveal" style="margin-top:2.5rem">
+    <div class="forum-card">
+      <div class="forum-date">2026.03</div>
+      <div class="forum-title">子育て支援フォーラム 2026</div>
+      <p class="forum-text">BPプログラムの最新の実践事例を共有し、全国の支援者・行政担当者とともに学び合う年次フォーラム。今年は「地域で子育てを支えるネットワークづくり」をテーマに開催予定。</p>
+    </div>
+    <div class="forum-card">
+      <div class="forum-date">2025.11</div>
+      <div class="forum-title">BPファシリテーター交流研修会</div>
+      <p class="forum-text">全国で活躍するBPファシリテーターが集まり、実践事例の発表やスキルアップを目的とした交流研修会。参加者同士のネットワーク形成の場としても好評です。</p>
+    </div>
+    <div class="forum-card">
+      <div class="forum-date">2025.09</div>
+      <div class="forum-title">子育て支援と地域連携シンポジウム</div>
+      <p class="forum-text">保健・医療・保育・行政が連携した子育て支援のあり方を考えるシンポジウム。BPプログラムの導入事例を紹介しながら、地域の支援体制について議論しました。</p>
+    </div>
+    <div class="forum-card">
+      <div class="forum-date">2025.06</div>
+      <div class="forum-title">育休中に学ぶ子育てプログラム説明会</div>
+      <p class="forum-text">育休中のパパ・ママに向けてBPプログラムを紹介するオンライン説明会。プログラムへの参加を検討している方が対象。随時開催しています。</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem" class="reveal">
+    <p style="font-size:.83rem;color:var(--mid);margin-bottom:1.2rem">フォーラム・セミナーへの参加お申込みはお問合せフォームから受け付けております。</p>
+    <button class="btn-p" onclick="showPage('contact')">参加申込・問合せ</button>
+  </div>
+</section>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: BOOKS
+══════════════════════════════════════ -->
+
+<div class="page" id="page-books">
+<section class="sec" style="padding-top:120px">
+  <div class="reveal">
+    <p class="sec-label">Publications</p>
+    <h2 class="sec-title">書籍・出版物案内</h2>
+    <p class="sec-sub">KKIおよびBPプログラムに関連する書籍・出版物のご紹介です。</p>
+  </div>
+  <div class="books-grid reveal">
+    <div class="book-card">
+      <div class="book-cover"><div class="book-cover-placeholder">📖</div></div>
+      <div class="book-info">
+        <div class="book-title">親子の絆づくり<br>BPプログラム実践ガイド</div>
+        <div class="book-author">KKI編</div>
+        <div class="book-pub">KKI出版</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover"><div class="book-cover-placeholder">📚</div></div>
+      <div class="book-info">
+        <div class="book-title">赤ちゃんがきた！<br>はじめての子育てサポートブック</div>
+        <div class="book-author">KKI監修</div>
+        <div class="book-pub">関連出版社</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover"><div class="book-cover-placeholder">📝</div></div>
+      <div class="book-info">
+        <div class="book-title">ファシリテーターのための<br>グループワーク入門</div>
+        <div class="book-author">KKI監修</div>
+        <div class="book-pub">KKI出版</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover"><div class="book-cover-placeholder">🎬</div></div>
+      <div class="book-info">
+        <div class="book-title">BP1プログラム<br>解説DVD</div>
+        <div class="book-author">プログラム進め方・実施方法を収録</div>
+        <div class="book-pub">KKI制作</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:3rem;padding:28px 32px;background:var(--blush);border-radius:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem" class="reveal">
+    <div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:1rem;margin-bottom:.4rem">書籍・DVDのご注文・お問合せ</div>
+      <p style="font-size:.8rem;color:var(--mid)">ご購入希望の方は、KKI事務局へお気軽にお問合せください。</p>
+    </div>
+    <button class="btn-p" onclick="showPage('contact')">お問合せ・注文する</button>
+  </div>
+
+  <!-- 会報 -->
+
+  <div style="margin-top:4rem" class="reveal">
+    <p class="sec-label">Newsletter</p>
+    <h3 class="sec-title" style="font-size:1.5rem">会報案内</h3>
+    <p style="font-size:.85rem;color:var(--mid);line-height:2;max-width:600px;margin-bottom:2rem">KKIでは、会員向けに定期的に会報を発行しています。最新のプログラム情報、ファシリテーターの実践レポート、研究成果などを掲載しています。</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <div style="background:var(--warm-white);border-radius:12px;padding:24px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.5rem">📰</div>
+        <div style="font-family:'Noto Serif JP',serif;font-size:.9rem;margin-bottom:.4rem">最新号</div>
+        <div style="font-size:.75rem;color:var(--mid)">プログラム実施報告、各地の取組みを掲載</div>
+      </div>
+      <div style="background:var(--warm-white);border-radius:12px;padding:24px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.5rem">📬</div>
+        <div style="font-family:'Noto Serif JP',serif;font-size:.9rem;margin-bottom:.4rem">会員限定配信</div>
+        <div style="font-size:.75rem;color:var(--mid)">会員の方へ郵送・メールにてお届け</div>
+      </div>
+      <div style="background:var(--warm-white);border-radius:12px;padding:24px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.5rem">🔖</div>
+        <div style="font-family:'Noto Serif JP',serif;font-size:.9rem;margin-bottom:.4rem">バックナンバー</div>
+        <div style="font-size:.75rem;color:var(--mid)">過去号は事務局にてご確認いただけます</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: MEMBERSHIP
+══════════════════════════════════════ -->
+
+<div class="page" id="page-membership">
+<section class="member-section sec" style="padding-top:120px">
+  <div class="reveal">
+    <p class="sec-label">Membership</p>
+    <h2 class="sec-title">ご入会案内</h2>
+    <p class="sec-sub">KKIへのご入会で、子育て支援の最前線にある情報・ネットワークをご活用いただけます。</p>
+  </div>
+  <div class="member-plans reveal">
+    <div class="member-plan">
+      <span class="plan-badge">個人会員</span>
+      <div class="plan-name">一般会員</div>
+      <div class="plan-fee">3,000</div>
+      <div class="plan-period">円 / 年</div>
+      <ul class="plan-features">
+        <li>会報の受け取り</li>
+        <li>KKI主催イベントへの優先参加</li>
+        <li>各種情報のメール配信</li>
+        <li>ファシリテーター登録割引（対象者）</li>
+      </ul>
+      <button class="btn-s" onclick="showPage('contact')" style="width:100%;justify-content:center">入会申込</button>
+    </div>
+    <div class="member-plan featured">
+      <span class="plan-badge">ファシリテーター</span>
+      <div class="plan-name">ファシリテーター会員</div>
+      <div class="plan-fee">5,000</div>
+      <div class="plan-period">円 / 年</div>
+      <ul class="plan-features">
+        <li>一般会員特典すべて</li>
+        <li>ファシリテーター登録・更新サポート</li>
+        <li>研修会への参加費優遇</li>
+        <li>全国のFAネットワーク参加</li>
+        <li>実践事例の共有・相談窓口</li>
+      </ul>
+      <button class="btn-p" onclick="showPage('contact')" style="width:100%;justify-content:center">入会申込</button>
+    </div>
+    <div class="member-plan">
+      <span class="plan-badge">団体・法人</span>
+      <div class="plan-name">賛助会員</div>
+      <div class="plan-fee">10,000</div>
+      <div class="plan-period">円〜 / 年</div>
+      <ul class="plan-features">
+        <li>団体名義でのKKI活動支援</li>
+        <li>会報への掲載（協力団体として）</li>
+        <li>講師・研修派遣の優先調整</li>
+        <li>プログラム導入相談</li>
+      </ul>
+      <button class="btn-s" onclick="showPage('contact')" style="width:100%;justify-content:center">入会申込</button>
+    </div>
+  </div>
+  <div style="margin-top:3rem;padding:28px 32px;background:#fff;border-radius:16px;font-size:.83rem;color:var(--mid);line-height:2;box-shadow:0 2px 20px rgba(100,70,40,.06)" class="reveal">
+    <strong style="font-family:'Noto Serif JP',serif;color:var(--charcoal);font-size:.9rem">入会手続きについて</strong><br>
+    入会をご希望の方は、お問合せフォームまたはお電話にてご連絡ください。入会申込書をお送りします。会費は年度途中のご入会の場合も年会費全額となります。
+  </div>
+</section>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════ -->
+
+<div class="page" id="page-contact">
+<section class="contact-section" style="padding-top:120px">
+  <div style="margin-bottom:3rem">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:.83rem;letter-spacing:.45em;color:rgba(255,255,255,.55);margin-bottom:.8rem">Contact</p>
+    <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.5rem,2.4vw,2.3rem);font-weight:400;color:#fff;margin-bottom:1rem">お問合せ</h2>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.6);max-width:500px;line-height:2">養成講座のお申込み、プログラム導入のご相談、書籍・DVD のご注文など、お気軽にご連絡ください。</p>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-grid">
+        <div class="contact-item">
+          <div class="ci-label">住所</div>
+          <div class="ci-val">〒636-0143<br>奈良県生駒郡斑鳩町<br>神南4-6-35</div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-label">電話・FAX</div>
+          <div class="ci-val"><a href="tel:0745750298">0745-75-0298</a></div>
+        </div>
+        <div class="contact-item" style="grid-column:1/-1">
+          <div class="ci-label">受付時間</div>
+          <div class="ci-val">平日 10:00〜16:00（土日祝は休業）</div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;padding:24px;background:rgba(255,255,255,.1);border-radius:12px">
+        <h4 style="font-family:'Noto Serif JP',serif;font-size:.9rem;color:#fff;margin-bottom:1rem">よくあるお問合せ</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="font-size:.78rem;color:rgba(255,255,255,.65);display:flex;gap:8px;line-height:1.7"><span style="color:var(--terracotta-light)">Q.</span> 養成講座の参加資格はありますか？</li>
+          <li style="font-size:.78rem;color:rgba(255,255,255,.8);display:flex;gap:8px;line-height:1.7;padding-left:1.5rem">保健師・助産師・保育士・社会福祉士などの専門職の方が多く参加されますが、資格がない方もご参加いただけます。</li>
+          <li style="font-size:.78rem;color:rgba(255,255,255,.65);display:flex;gap:8px;line-height:1.7"><span style="color:var(--terracotta-light)">Q.</span> プログラムへの参加はどこで申し込めますか？</li>
+          <li style="font-size:.78rem;color:rgba(255,255,255,.8);display:flex;gap:8px;line-height:1.7;padding-left:1.5rem">地域の自治体・子育て支援センターへお問合せいただくか、KKI事務局へご連絡ください。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-family:'Noto Serif JP',serif;font-size:1rem;color:#fff;margin-bottom:1.5rem">お問合せフォーム</h3>
+      <div class="form-group">
+        <label class="form-label">お名前 *</label>
+        <input class="form-input" type="text" placeholder="山田 花子">
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス *</label>
+        <input class="form-input" type="email" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話番号</label>
+        <input class="form-input" type="tel" placeholder="090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">お問合せ種別</label>
+        <select class="form-input" style="cursor:pointer">
+          <option value="">選択してください</option>
+          <option>養成講座への参加申込</option>
+          <option>プログラム導入相談（行政・施設）</option>
+          <option>書籍・DVDの購入</option>
+          <option>入会について</option>
+          <option>ファシリテーター登録更新</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メッセージ *</label>
+        <textarea class="form-input" placeholder="ご質問・ご相談内容をご記入ください"></textarea>
+      </div>
+      <button class="btn-p" style="width:100%;justify-content:center;padding:14px" onclick="alert('お問合せありがとうございます。事務局よりご連絡いたします。')">送信する</button>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══════════════ FOOTER (shared) ══════════════ -->
 
 <footer>
-  <div class="footer-grid">
+  <div class="footer-top">
     <div>
-      <div class="footer-brand">
-        <span>K K I</span>
-        NPO法人<br>こころの子育てインターねっと関西
+      <div class="footer-brand-en">KKI</div>
+      <div class="footer-brand-jp">NPO法人<br>こころの子育てインターねっと関西</div>
+      <div class="footer-addr">〒636-0143<br>奈良県生駒郡斑鳩町神南4-6-35<br>Tel/Fax: 0745-75-0298</div>
+      <div class="gov-badge">こども家庭庁 親子関係形成支援事業</div>
+      <div class="trademark-note">
+        【商標登録】「親子の絆づくりプログラム"赤ちゃんがきた！"」「BPプログラム」は登録商標です。BPプログラムを模した実施・アレンジ・一部使用等はご遠慮ください。
       </div>
-      <p class="footer-address">
-        〒636-0143<br>
-        奈良県生駒郡斑鳩町神南4-6-35<br>
-        Tel/Fax: 0745-75-0298
-      </p>
-      <br>
-      <div class="government-badge">こども家庭庁 親子関係形成支援事業</div>
     </div>
     <div class="footer-col">
-      <h4>BP Programs</h4>
+      <h5>Programs</h5>
       <ul>
-        <li><a href="bp.php">BPプログラムについて</a></li>
-        <li><a href="bp1.php">BP1プログラム</a></li>
-        <li><a href="bp2.php">BP2プログラム</a></li>
-        <li><a href="bp3.php">BP3プログラム</a></li>
-        <li><a href="bp_facilitator.php">ファシリテーターとは</a></li>
-        <li><a href="bp_dvd.php">解説DVD</a></li>
+        <li><button onclick="showPage('programs');switchProgTab('bp1')">BP1 赤ちゃんがきた！</button></li>
+        <li><button onclick="showPage('programs');switchProgTab('bp2')">BP2 きょうだいが生まれた！</button></li>
+        <li><button onclick="showPage('programs');switchProgTab('bp3')">BP3 幼児とともに！</button></li>
+        <li><button onclick="showPage('programs');switchProgTab('faci')">BPファシリテーターとは</button></li>
+        <li><button onclick="showPage('books')">BP1解説DVD</button></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Courses</h4>
+      <h5>Courses</h5>
       <ul>
-        <li><a href="kouza.php">養成講座日程</a></li>
-        <li><a href="bp1_kouza.php">BP1養成講座</a></li>
-        <li><a href="bp2_3_kouza.php">BP2・3養成講座</a></li>
-        <li><a href="bp1fa_workshop.php">BP1研修会</a></li>
-        <li><a href="bp2_3_workshop.php">BP2・3研修会</a></li>
-        <li><a href="gyosei.php">行政担当者の方へ</a></li>
+        <li><button onclick="showPage('schedule')">養成講座 日程一覧</button></li>
+        <li><button onclick="showPage('schedule');switchSchTab('2026')">2026年度日程</button></li>
+        <li><button onclick="showPage('schedule');switchSchTab('renewal')">登録更新・研修会</button></li>
+        <li><button onclick="showPage('about')">行政担当者の方へ</button></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Information</h4>
+      <h5>Information</h5>
       <ul>
-        <li><a href="kki.php">KKIについて</a></li>
-        <li><a href="message.php">代表メッセージ</a></li>
-        <li><a href="forum.php">フォーラム</a></li>
-        <li><a href="books.php">書籍案内</a></li>
-        <li><a href="kaihou.php">会報案内</a></li>
-        <li><a href="nyukai.php">ご入会案内</a></li>
-        <li><a href="otoiawase.php">お問合せ</a></li>
-        <li><a href="sitemap.php">サイトマップ</a></li>
+        <li><button onclick="showPage('about')">KKIについて</button></li>
+        <li><button onclick="showPage('about')">代表メッセージ</button></li>
+        <li><button onclick="showPage('forum')">フォーラム</button></li>
+        <li><button onclick="showPage('books')">書籍案内・会報</button></li>
+        <li><button onclick="showPage('membership')">ご入会案内</button></li>
+        <li><button onclick="showPage('contact')">お問合せ</button></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>Copyright © 2026 NPO法人 こころの子育てインターねっと関西 All Rights Reserved.</span>
-    <span style="font-family:'Cormorant Garamond',serif;letter-spacing:0.2em;opacity:0.3;">KKI</span>
+    <span style="font-family:'Cormorant Garamond',serif;letter-spacing:.3em;opacity:.25">KKI</span>
   </div>
 </footer>
 
 <script>
-  // Nav scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
+// ─── Page routing ───
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + id);
+  if (target) { target.classList.add('active'); }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  initReveal();
+}
+
+// ─── Nav scroll ───
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ─── Scroll reveal ───
+function initReveal() {
+  setTimeout(() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('in'), i * 70);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.page.active .reveal:not(.in)').forEach(el => obs.observe(el));
+  }, 50);
+}
+initReveal();
+
+// ─── Program tabs ───
+function switchProgTab(name) {
+  ['bp1','bp2','bp3','faci'].forEach(t => {
+    const tab = document.getElementById('prog-tab-' + t);
+    const content = document.getElementById('prog-content-' + t);
+    if (tab) tab.classList.toggle('active', t === name);
+    if (content) content.classList.toggle('active', t === name);
   });
+}
 
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 60);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
+// ─── Schedule tabs ───
+function switchSchTab(name) {
+  ['2026','2025','renewal'].forEach(t => {
+    const content = document.getElementById('sch-' + t);
+    if (content) content.classList.toggle('active', t === name);
+  });
+  document.querySelectorAll('.sch-section .sch-tab').forEach((tab, i) => {
+    const names = ['2026','2025','renewal'];
+    tab.classList.toggle('active', names[i] === name);
+  });
+}
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// ─── Mobile menu ───
+function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 </script>
 
 </body>
