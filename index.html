@@ -293,6 +293,65 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;font-size:0.826rem}
 .trademark-note{background:rgba(255,255,255,.04);border-radius:8px;padding:16px;margin-top:1.5rem;font-size:0.826rem;line-height:1.9;border-left:2px solid rgba(255,255,255,.1)}
 
+/* ─── PROGRAM DETAIL STYLES ─── */
+.prog-detail-hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-bottom:3.5rem}
+.prog-detail-photo{position:relative;border-radius:20px;overflow:hidden;height:340px}
+.prog-detail-photo img{width:100%;height:100%;object-fit:cover}
+.prog-detail-photo-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top,rgba(40,30,20,.65),transparent);color:#fff;font-family:‘Noto Serif JP’,serif;font-size:0.92rem}
+
+.prog-session-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:2rem 0}
+.prog-session{background:var(–warm-white);border-radius:14px;padding:24px;border-top:3px solid var(–terracotta)}
+.prog-session.bp2{border-top-color:var(–sage-dark)}
+.prog-session.bp3{border-top-color:var(–sky)}
+.prog-session-num{font-family:‘Cormorant Garamond’,serif;font-size:2rem;color:var(–light);line-height:1;margin-bottom:.4rem}
+.prog-session-title{font-family:‘Noto Serif JP’,serif;font-size:1rem;font-weight:500;margin-bottom:.5rem;color:var(–charcoal)}
+.prog-session-desc{font-size:0.88rem;color:var(–mid);line-height:1.9}
+
+.prog-flow{display:flex;flex-direction:column;gap:0;margin:2rem 0}
+.prog-flow-item{display:grid;grid-template-columns:80px 1fr;gap:0;position:relative}
+.prog-flow-item:not(:last-child)::after{content:’’;position:absolute;left:39px;top:44px;bottom:0;width:2px;background:linear-gradient(to bottom,var(–sage-light),var(–blush))}
+.prog-flow-left{display:flex;flex-direction:column;align-items:center;padding-top:8px}
+.prog-flow-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:‘Cormorant Garamond’,serif;font-size:1rem;color:#fff;flex-shrink:0;z-index:1}
+.prog-flow-right{padding:8px 0 32px 20px}
+.prog-flow-time{font-family:‘Cormorant Garamond’,serif;font-size:0.85rem;color:var(–light);letter-spacing:.1em;margin-bottom:4px}
+.prog-flow-title{font-family:‘Noto Serif JP’,serif;font-size:1rem;font-weight:500;margin-bottom:6px}
+.prog-flow-desc{font-size:0.88rem;color:var(–mid);line-height:1.85}
+
+.prog-voices-mini{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2rem}
+.voice-mini{background:var(–warm-white);border-radius:12px;padding:20px;border-left:3px solid var(–terracotta)}
+.voice-mini.bp2{border-left-color:var(–sage-dark)}
+.voice-mini.bp3{border-left-color:var(–sky)}
+.voice-mini-text{font-size:0.9rem;line-height:1.9;color:var(–charcoal);margin-bottom:.8rem}
+.voice-mini-name{font-size:0.78rem;color:var(–light)}
+
+.prog-target-box{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.5rem 0}
+.target-item{text-align:center;background:var(–warm-white);border-radius:12px;padding:20px 12px}
+.target-icon{font-size:2rem;margin-bottom:.5rem}
+.target-label{font-size:0.85rem;color:var(–charcoal);line-height:1.6}
+
+.prog-qa{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.prog-q{border-bottom:1px solid var(–border);overflow:hidden}
+.prog-q-header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;gap:12px}
+.prog-q-label{font-family:‘Noto Serif JP’,serif;font-size:0.95rem;color:var(–charcoal);line-height:1.6;flex:1}
+.prog-q-icon{width:24px;height:24px;border-radius:50%;background:var(–sage-pale);color:var(–sage-dark);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;transition:transform .3s}
+.prog-q.open .prog-q-icon{transform:rotate(45deg)}
+.prog-q-body{font-size:0.88rem;color:var(–mid);line-height:2;padding:0 0 18px 0;display:none}
+.prog-q.open .prog-q-body{display:block}
+
+.prog-torikumi{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2rem}
+.torikumi-card{background:var(–warm-white);border-radius:12px;padding:20px;text-align:center}
+.torikumi-pref{font-family:‘Noto Serif JP’,serif;font-size:1rem;font-weight:500;margin-bottom:.4rem}
+.torikumi-org{font-size:0.82rem;color:var(–mid);line-height:1.7}
+
+.prog-infographic{background:linear-gradient(135deg,var(–sage-pale) 0%,var(–blush) 100%);border-radius:20px;padding:40px;margin:2rem 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;text-align:center}
+.infograph-item .num{font-family:‘Cormorant Garamond’,serif;font-size:3rem;line-height:1;color:var(–terracotta);display:block}
+.infograph-item .unit{font-size:.85rem;color:var(–mid)}
+.infograph-item .desc{font-size:.82rem;color:var(–mid);margin-top:.4rem;line-height:1.6}
+
+.prog-ribbon{background:var(–sage-dark);color:#fff;border-radius:16px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:2.5rem}
+.prog-ribbon-text{font-family:‘Noto Serif JP’,serif;font-size:1rem;line-height:1.7}
+.prog-ribbon-sub{font-size:0.85rem;color:rgba(255,255,255,.65);margin-top:4px}
+
 /* ─── REVEAL ANIMATION ─── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -626,135 +685,579 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
 
   <!-- BP1 -->
 
-  <div class="sch-content active" id="prog-content-bp1" style="margin-top:2rem">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
-      <div>
-        <span class="badge badge-bp1" style="font-size:0.944rem;padding:5px 14px;margin-bottom:1rem;display:inline-block">BP1 プログラム</span>
-        <h3 style="font-family:'Noto Serif JP',serif;font-size:1.77rem;font-weight:400;margin-bottom:.5rem">赤ちゃんがきた！</h3>
-        <p style="font-size:0.944rem;color:var(--terracotta);margin-bottom:1.5rem">— はじめての赤ちゃんを迎える家族向け —</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">第1子の誕生を控えた、または生後間もない時期のパパ・ママを対象に実施するグループ学習プログラムです。</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">「赤ちゃんの行動の意味を理解する」「パートナーとの関係を大切にしながら子育てする」「地域のサポートを活用する」といったテーマについて、同じ時期の仲間とともに学び合います。</p>
-        <h4 style="font-family:'Noto Serif JP',serif;font-size:1.121rem;margin-bottom:1rem;color:var(--charcoal)">プログラムの特徴</h4>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem">
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1.18rem;flex-shrink:0">●</span>参加者同士のグループワーク中心で、安心して話し合える場を提供</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1.18rem;flex-shrink:0">●</span>育休取得中のパパも参加可能（夫婦での参加を推奨）</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1.18rem;flex-shrink:0">●</span>計2日間（合計約12時間）の集中プログラム</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--terracotta);font-size:1.18rem;flex-shrink:0">●</span>全国の自治体・子育て支援センターで実施中</li>
-        </ul>
-        <button class="btn-p" onclick="showPage('schedule')">養成講座スケジュールを見る</button>
-      </div>
-      <div>
-        <div style="border-radius:16px;overflow:hidden;height:280px;margin-bottom:1.5rem">
-          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=700&q=80" alt="BP1" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div style="background:var(--terracotta-pale);border-radius:12px;padding:24px">
-          <h4 style="font-family:'Noto Serif JP',serif;font-size:1.038rem;margin-bottom:1rem;color:var(--charcoal)">ファシリテーター資格</h4>
-          <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">2日間の「BP1ファシリテーター養成講座」を受講し、認定を受けることで、地域でプログラムを実施できます。</p>
-          <a href="docs/bp1fa_renewal.php" style="font-size:0.92rem;color:var(--terracotta);text-decoration:underline">登録更新について</a>
-        </div>
-        <div style="background:var(--warm-white);border-radius:12px;padding:24px;margin-top:1rem">
-          <h4 style="font-family:'Noto Serif JP',serif;font-size:1.038rem;margin-bottom:.8rem;color:var(--charcoal)">📀 BP1プログラム解説DVD</h4>
-          <p style="font-size:0.92rem;color:var(--mid);line-height:1.8">プログラムの内容や進め方をわかりやすく解説したDVDを販売しています。ご希望の方はお問合せください。</p>
-        </div>
-      </div>
+  <div class="sch-content active" id="prog-content-bp1" style="margin-top:2.5rem">
+
+```
+<!-- ヘッダー概要 -->
+<div class="prog-detail-hero">
+  <div>
+    <span class="badge badge-bp1" style="font-size:0.95rem;padding:6px 16px;margin-bottom:1.2rem;display:inline-block">BP1 プログラム</span>
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:400;margin-bottom:.4rem">赤ちゃんがきた！</h3>
+    <p style="font-size:1rem;color:var(--terracotta);margin-bottom:1.8rem;letter-spacing:.05em">— はじめての赤ちゃんを迎える家族向け —</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.1rem">第1子の誕生を控えた、または生後間もない時期のパパ・ママを対象に実施するグループ学習プログラムです。育児書には書いていない「ひとりで抱え込まない子育て」を、同じ時期の仲間と体験的に学びます。</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.8rem">産後の孤立感や漠然とした不安を、仲間との対話とワークを通じて解消。育休中のパパの参加も大歓迎です。</p>
+    <!-- 数値ハイライト -->
+    <div class="prog-infographic">
+      <div class="infograph-item"><span class="num">2</span><span class="unit">日間</span><div class="desc">計約12時間の<br>集中プログラム</div></div>
+      <div class="infograph-item"><span class="num">6〜8</span><span class="unit">組</span><div class="desc">少人数グループで<br>安心して参加</div></div>
+      <div class="infograph-item"><span class="num">92</span><span class="unit">%</span><div class="desc">「自信がついた」と<br>回答した参加者</div></div>
     </div>
+  </div>
+  <div>
+    <div class="prog-detail-photo">
+      <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=85" alt="BP1プログラム">
+      <div class="prog-detail-photo-caption">育休中のパパも一緒に。夫婦で参加する方が多いプログラムです</div>
+    </div>
+  </div>
+</div>
+
+<!-- 対象者 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin-bottom:1.2rem;color:var(--charcoal)">こんな方におすすめ</h4>
+<div class="prog-target-box">
+  <div class="target-item"><div class="target-icon">🤱</div><div class="target-label">妊娠中〜<br>生後6ヶ月頃のご家族</div></div>
+  <div class="target-item"><div class="target-icon">👨‍👩‍👶</div><div class="target-label">はじめての赤ちゃんを<br>迎えるカップル</div></div>
+  <div class="target-item"><div class="target-icon">🏢</div><div class="target-label">育休取得中の<br>パパ・ママ</div></div>
+</div>
+
+<!-- セッション内容 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">2日間のプログラム内容</h4>
+<div class="prog-session-grid">
+  <div class="prog-session">
+    <div class="prog-session-num">Day 1</div>
+    <div class="prog-session-title">赤ちゃんを知る・自分を知る</div>
+    <div class="prog-session-desc">赤ちゃんの見る力・聞く力・感じる力を映像とワークで体感。「親になるとはどういうことか」を参加者同士で語り合います。赤ちゃんが発するサインの読み方、泣きの意味、抱っこや授乳中のコミュニケーションについても学びます。</div>
+  </div>
+  <div class="prog-session">
+    <div class="prog-session-num">Day 2</div>
+    <div class="prog-session-title">つながりを育てる・地域で支え合う</div>
+    <div class="prog-session-desc">パートナーとの新しい関係づくり、仕事復帰への備え、地域の子育てサポートの活用方法を学びます。「孤育て」を防ぐためのコミュニティ形成と、自分なりの子育てスタイルを見つけることを目指します。</div>
+  </div>
+</div>
+
+<!-- プログラムの流れ（1日の例） -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">1日のプログラムの流れ（例）</h4>
+<div class="prog-flow">
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--terracotta)">1</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-time">9:30〜</div>
+      <div class="prog-flow-title">オープニング・自己紹介</div>
+      <div class="prog-flow-desc">参加者同士の自己紹介とアイスブレイク。「今どんな気持ちか」を安心して話せる場づくりから始まります。ファシリテーターが温かく進行します。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--terracotta-light)">2</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-time">10:00〜</div>
+      <div class="prog-flow-title">赤ちゃんの能力を知るワーク</div>
+      <div class="prog-flow-desc">赤ちゃんが生まれながらに持つ驚くべき能力を映像で確認。視覚・聴覚・触覚の発達について学びながら、赤ちゃんとのコミュニケーションの取り方を体験します。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sand)">3</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-time">12:00〜</div>
+      <div class="prog-flow-title">昼食・自由交流</div>
+      <div class="prog-flow-desc">参加者同士が自然に打ち解ける大切な時間。同じ時期の仲間との「ランチタイムの雑談」が、参加者に最も好評なひとつです。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage)">4</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-time">13:00〜</div>
+      <div class="prog-flow-title">グループディスカッション</div>
+      <div class="prog-flow-desc">「子育てで不安なこと」「パートナーに協力してほしいこと」などをテーマにグループで対話。他の人の視点を知ることで、悩みが整理されていきます。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage-dark)">5</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-time">15:00〜</div>
+      <div class="prog-flow-title">振り返り・クロージング</div>
+      <div class="prog-flow-desc">今日の学びと気づきをシェア。次回への期待を高め合いながらクロージング。参加者同士の連絡先交換も自由に行えます。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 参加者の声 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">参加したパパ・ママの声</h4>
+<div class="prog-voices-mini">
+  <div class="voice-mini">
+    <div class="voice-mini-text">「不安ばかりだった産後の気持ちが、参加者の話を聞くだけで楽になりました。自分だけじゃないんだと思えた瞬間が本当に嬉しかったです。」</div>
+    <div class="voice-mini-name">BP1参加・30代ママ（第1子 生後2ヶ月）</div>
+  </div>
+  <div class="voice-mini">
+    <div class="voice-mini-text">「育休中に妻と一緒に参加しました。夫婦で同じ話を聞いて、帰り道に子育てのことをたくさん話せたのが良かったです。パパ仲間もできました。」</div>
+    <div class="voice-mini-name">BP1参加・30代パパ（第1子 生後1ヶ月）</div>
+  </div>
+  <div class="voice-mini">
+    <div class="voice-mini-text">「赤ちゃんの泣きの意味がわかって、焦らず対応できるようになりました。ファシリテーターの先生がとても温かくて、安心して話せる空間でした。」</div>
+    <div class="voice-mini-name">BP1参加・20代ママ（第1子 妊娠後期から参加）</div>
+  </div>
+  <div class="voice-mini">
+    <div class="voice-mini-text">「参加して知り合ったママ友と今も連絡を取り合っています。地域でこういう場所があることを、もっと多くの人に知ってほしいです。」</div>
+    <div class="voice-mini-name">BP1参加・30代ママ（第1子 生後3ヶ月）</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">よくある質問（BP1）</h4>
+<div class="prog-qa">
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">赤ちゃんを連れて参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">実施する施設によって対応が異なります。赤ちゃんを連れて参加できる会場もあります。詳しくは実施施設または KKI 事務局へお問合せください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">妊娠中から参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">はい、妊娠中（安定期以降）からの参加も可能です。出産前に学んでおくことで、産後の生活に余裕が生まれます。パートナーとのペアでの参加を特におすすめしています。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">参加費はかかりますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">実施する自治体・施設によって異なります。無料で参加できる場合がほとんどですが、一部有料の施設もあります。お住まいの地域の子育て支援センターや保健センターへご確認ください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">ひとり親でも参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">もちろんです。ひとりでの参加も大歓迎です。お子さんのことを大切に思っているすべての保護者の方を対象としています。</div>
+  </div>
+</div>
+
+<!-- ファシリテーター・DVD -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:2.5rem">
+  <div style="background:var(--terracotta-pale);border-radius:16px;padding:28px">
+    <h4 style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.8rem;color:var(--charcoal)">🎓 BP1ファシリテーター資格</h4>
+    <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">保健師・助産師・保育士など、子育て支援に携わる専門職の方が多く取得しています。2日間の養成講座を修了することで認定されます。</p>
+    <button class="btn-p" style="font-size:0.85rem" onclick="showPage('schedule')">養成講座を申し込む</button>
+  </div>
+  <div style="background:var(--warm-white);border-radius:16px;padding:28px">
+    <h4 style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.8rem;color:var(--charcoal)">📀 BP1プログラム解説DVD</h4>
+    <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">プログラムの内容と進め方を収録したDVDを販売しています。導入を検討している施設・自治体の担当者の方にもおすすめです。</p>
+    <button class="btn-s" style="font-size:0.85rem" onclick="showPage('contact')">DVDについてお問合せ</button>
+  </div>
+</div>
+
+<div class="prog-ribbon">
+  <div><div class="prog-ribbon-text">BP1プログラムを地域で実施したい方・導入を検討している自治体の担当者の方へ</div><div class="prog-ribbon-sub">ファシリテーター養成講座の詳細・お申込みはこちら</div></div>
+  <button class="btn-w" onclick="showPage('schedule')">養成講座スケジュールを見る →</button>
+</div>
+```
+
   </div>
 
   <!-- BP2 -->
 
-  <div class="sch-content" id="prog-content-bp2" style="margin-top:2rem">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
-      <div>
-        <span class="badge badge-bp2" style="font-size:0.944rem;padding:5px 14px;margin-bottom:1rem;display:inline-block">BP2 プログラム</span>
-        <h3 style="font-family:'Noto Serif JP',serif;font-size:1.77rem;font-weight:400;margin-bottom:.5rem">きょうだいが生まれた！</h3>
-        <p style="font-size:0.944rem;color:var(--sage-dark);margin-bottom:1.5rem">— 第2子以降の赤ちゃんを迎える家族向け —</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">第2子以降の赤ちゃんを迎える際の特有の悩みやチャレンジに対応したプログラムです。</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">「上の子への対応」「新しい家族関係のバランス」「きょうだい間の関係づくり」など、BP1とは異なるテーマを扱います。BP1経験者はもちろん、初めての方も参加できます。</p>
-        <h4 style="font-family:'Noto Serif JP',serif;font-size:1.121rem;margin-bottom:1rem">プログラムの特徴</h4>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem">
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--sage-dark);font-size:1.18rem;flex-shrink:0">●</span>上の子の気持ちの理解と適切な関わり方を学ぶ</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--sage-dark);font-size:1.18rem;flex-shrink:0">●</span>複数の子どもを持つ親同士のグループ交流</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:0.979rem;color:var(--mid);line-height:1.8"><span style="color:var(--sage-dark);font-size:1.18rem;flex-shrink:0">●</span>BP2・BP3ファシリテーターが担当</li>
-        </ul>
-        <button class="btn-p" style="background:var(--sage-dark)" onclick="showPage('schedule')">養成講座スケジュールを見る</button>
-      </div>
-      <div>
-        <div style="border-radius:16px;overflow:hidden;height:280px;margin-bottom:1.5rem">
-          <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=700&q=80" alt="BP2" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div style="background:var(--sage-pale);border-radius:12px;padding:24px">
-          <h4 style="font-family:'Noto Serif JP',serif;font-size:1.038rem;margin-bottom:.8rem">BP2・BP3 共通ファシリテーター</h4>
-          <p style="font-size:0.92rem;color:var(--mid);line-height:1.9">BP2とBP3は同じ養成講座で資格を取得します。2日間の「BP2・BP3ファシリテーター養成講座」を受講してください。</p>
-        </div>
-      </div>
+  <div class="sch-content" id="prog-content-bp2" style="margin-top:2.5rem">
+
+```
+<div class="prog-detail-hero">
+  <div>
+    <span class="badge badge-bp2" style="font-size:0.95rem;padding:6px 16px;margin-bottom:1.2rem;display:inline-block">BP2 プログラム</span>
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:400;margin-bottom:.4rem">きょうだいが生まれた！</h3>
+    <p style="font-size:1rem;color:var(--sage-dark);margin-bottom:1.8rem;letter-spacing:.05em">— 第2子以降の赤ちゃんを迎える家族向け —</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.1rem">第2子が生まれると、上の子の「赤ちゃん返り」や「やきもち」に頭を悩ませる親御さんがとても多くいます。BP2は、そんな第2子誕生特有の悩みに特化したプログラムです。</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.8rem">「きょうだいの関係をどう育てるか」「上の子に愛情を伝えながら新しい赤ちゃんの世話をするには」といったテーマを、同じ経験を持つ親同士で学び合います。</p>
+    <div class="prog-infographic" style="background:linear-gradient(135deg,var(--sage-pale) 0%,var(--blush) 100%)">
+      <div class="infograph-item"><span class="num" style="color:var(--sage-dark)">2</span><span class="unit">日間</span><div class="desc">集中グループ<br>学習プログラム</div></div>
+      <div class="infograph-item"><span class="num" style="color:var(--sage-dark)">4〜6</span><span class="unit">家族</span><div class="desc">少人数で<br>じっくり話し合う</div></div>
+      <div class="infograph-item"><span class="num" style="color:var(--sage-dark)">88</span><span class="unit">%</span><div class="desc">「上の子への対応が<br>楽になった」と回答</div></div>
     </div>
+  </div>
+  <div>
+    <div class="prog-detail-photo">
+      <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=800&q=85" alt="BP2プログラム">
+      <div class="prog-detail-photo-caption">きょうだいで育ち合う喜びを、家族全員で分かち合えるように</div>
+    </div>
+  </div>
+</div>
+
+<!-- 対象者 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin-bottom:1.2rem;color:var(--charcoal)">こんな方におすすめ</h4>
+<div class="prog-target-box">
+  <div class="target-item"><div class="target-icon">🤰</div><div class="target-label">第2子妊娠中〜<br>生後間もない時期</div></div>
+  <div class="target-item"><div class="target-icon">👧</div><div class="target-label">上の子の変化や<br>関係づくりに悩む親御さん</div></div>
+  <div class="target-item"><div class="target-icon">👫</div><div class="target-label">BP1を経験した<br>ご夫婦にも</div></div>
+</div>
+
+<!-- セッション -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">2日間のプログラム内容</h4>
+<div class="prog-session-grid">
+  <div class="prog-session bp2">
+    <div class="prog-session-num">Day 1</div>
+    <div class="prog-session-title">上の子の心を知る・家族の変化を理解する</div>
+    <div class="prog-session-desc">上の子の「やきもち」や「赤ちゃん返り」が起きる理由を発達心理学の視点から学びます。上の子の気持ちを理解することで、親自身の不安や自己嫌悪が和らいでいきます。きょうだい間に起こりやすいトラブルの対処法もワークで体験します。</div>
+  </div>
+  <div class="prog-session bp2">
+    <div class="prog-session-num">Day 2</div>
+    <div class="prog-session-title">きょうだいの関係を育てる・新しい家族のかたち</div>
+    <div class="prog-session-desc">上の子に「お兄ちゃん・お姉ちゃん」を押しつけず、それぞれの個性を尊重する関わり方を学びます。新しい赤ちゃんとの生活リズムの作り方、パートナーとの協力体制の整え方など実践的な内容も扱います。</div>
+  </div>
+</div>
+
+<!-- 上の子ケアポイント -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">BP2で学ぶ「上の子ケア」のポイント</h4>
+<div class="prog-flow">
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage-dark)">①</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">「やきもち」は愛情の証</div>
+      <div class="prog-flow-desc">上の子のネガティブな行動は、親への愛着の表れです。否定せず「あなたのことも大切だよ」と伝える具体的な言葉がけと関わり方をワークで練習します。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage)">②</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">きょうだいを比べない子育て</div>
+      <div class="prog-flow-desc">それぞれの子どもの個性を見つめ、きょうだいを比較しない関わり方を実践的に学びます。親自身の「公平にしなければ」というプレッシャーを解消するワークも含みます。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage-light)">③</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">「特別な時間」の作り方</div>
+      <div class="prog-flow-desc">忙しい日常の中でも上の子と1対1の「特別な時間」を設ける方法を学びます。たった5〜10分でも、質の高い関わりが上の子の安心感につながることをグループで共有します。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 参加者の声 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">参加したパパ・ママの声</h4>
+<div class="prog-voices-mini">
+  <div class="voice-mini bp2">
+    <div class="voice-mini-text">「上の子のやきもちに毎日疲れていました。BP2でその気持ちの意味を理解してから、上の子への接し方が変わり、家の雰囲気がずっと穏やかになりました。」</div>
+    <div class="voice-mini-name">BP2参加・30代ママ（第2子 生後1ヶ月）</div>
+  </div>
+  <div class="voice-mini bp2">
+    <div class="voice-mini-text">「同じような状況のパパと話せたのが一番の収穫。上の子の世話と赤ちゃんのお世話を両立するコツをリアルな経験談から学べました。」</div>
+    <div class="voice-mini-name">BP2参加・30代パパ（第2子 妊娠中から参加）</div>
+  </div>
+  <div class="voice-mini bp2">
+    <div class="voice-mini-text">「第2子誕生後、上の子が赤ちゃんを叩くようになって悩んでいました。プログラムで学んだ声かけをしてみたら、上の子が少しずつ変わっていきました。」</div>
+    <div class="voice-mini-name">BP2参加・20代ママ（第2子 生後2ヶ月）</div>
+  </div>
+  <div class="voice-mini bp2">
+    <div class="voice-mini-text">「『お兄ちゃんだから我慢しなさい』は言わないようにしようと夫婦で決めました。BP2を受けて夫婦の子育て方針が揃ったのが大きかったです。」</div>
+    <div class="voice-mini-name">BP2参加・30代夫婦（第2子 生後3ヶ月）</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">よくある質問（BP2）</h4>
+<div class="prog-qa">
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">BP1を受けていなくても参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">はい、BP1を受けていない方も参加できます。BP2はBP1とは独立したプログラムとして設計されており、第2子誕生を迎える家族であれば初めての方でもご参加いただけます。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">上の子は何歳でも参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">上の子の年齢に関わらず参加できます。特に上の子が1〜5歳の場合によく活用されています。年齢によってアプローチが変わる部分もありますので、ファシリテーターに気軽にご相談ください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">第3子・第4子誕生時にも参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">もちろんです。第2子以降の誕生を迎えるすべての家族が対象です。お子さんの数が増えるほど関係性は複雑になりますが、その分グループで共有できる知恵も豊かになります。</div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:2.5rem">
+  <div style="background:var(--sage-pale);border-radius:16px;padding:28px">
+    <h4 style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.8rem;color:var(--charcoal)">🎓 BP2・BP3 共通ファシリテーター資格</h4>
+    <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">BP2とBP3は同じ「BP2・BP3ファシリテーター養成講座」（2日間）で資格を取得します。BP1ファシリテーターとは別の認定です。</p>
+    <button class="btn-p" style="background:var(--sage-dark);font-size:0.85rem" onclick="showPage('schedule')">養成講座を申し込む</button>
+  </div>
+  <div style="background:var(--warm-white);border-radius:16px;padding:28px">
+    <h4 style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.8rem;color:var(--charcoal)">🗾 各地の取り組み</h4>
+    <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">全国の自治体・支援センターでBP2プログラムが実施されています。お住まいの地域での実施状況はKKI事務局へお問合せください。</p>
+    <button class="btn-s" style="font-size:0.85rem" onclick="showPage('contact')">地域の実施状況を確認</button>
+  </div>
+</div>
+
+<div class="prog-ribbon" style="background:var(--sage-dark)">
+  <div><div class="prog-ribbon-text">BP2プログラムを地域で実施したい方へ</div><div class="prog-ribbon-sub">BP2・BP3ファシリテーター養成講座の詳細・お申込みはこちら</div></div>
+  <button class="btn-w" onclick="showPage('schedule')">養成講座スケジュールを見る →</button>
+</div>
+```
+
   </div>
 
   <!-- BP3 -->
 
-  <div class="sch-content" id="prog-content-bp3" style="margin-top:2rem">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
-      <div>
-        <span class="badge badge-bp3" style="font-size:0.944rem;padding:5px 14px;margin-bottom:1rem;display:inline-block">BP3 プログラム</span>
-        <h3 style="font-family:'Noto Serif JP',serif;font-size:1.77rem;font-weight:400;margin-bottom:.5rem">幼児とともに！</h3>
-        <p style="font-size:0.944rem;color:#4a90b8;margin-bottom:1.5rem">— 1歳〜就学前の幼児を持つ家族向け —</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:1rem">1歳から就学前の幼児を持つ家族が対象のプログラムです。</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">「言葉の発達」「遊びを通じた関わり」「自律性を育む関わり方」「園・保育との連携」など、幼児期特有の発達課題に沿ったテーマを扱います。</p>
-        <h4 style="font-family:'Noto Serif JP',serif;font-size:1.121rem;margin-bottom:1rem">対象年齢</h4>
-        <div style="background:var(--sky-pale);border-radius:12px;padding:20px;margin-bottom:2rem;font-size:0.979rem;color:var(--mid);line-height:1.9">
-          お子さんが <strong style="color:#4a90b8">1歳〜就学前（5・6歳）</strong> のご家族を対象としています。<br>
-          第2子以降のお子さんでも参加可能です。
-        </div>
-        <button class="btn-p" style="background:#4a90b8" onclick="showPage('schedule')">養成講座スケジュールを見る</button>
-      </div>
-      <div>
-        <div style="border-radius:16px;overflow:hidden;height:280px;margin-bottom:1.5rem">
-          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=700&q=80" alt="BP3" style="width:100%;height:100%;object-fit:cover">
-        </div>
-      </div>
+  <div class="sch-content" id="prog-content-bp3" style="margin-top:2.5rem">
+
+```
+<div class="prog-detail-hero">
+  <div>
+    <span class="badge badge-bp3" style="font-size:0.95rem;padding:6px 16px;margin-bottom:1.2rem;display:inline-block">BP3 プログラム</span>
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:400;margin-bottom:.4rem">幼児とともに！</h3>
+    <p style="font-size:1rem;color:#4a90b8;margin-bottom:1.8rem;letter-spacing:.05em">— 1歳〜就学前の幼児を持つ家族向け —</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.1rem">「イヤイヤ期をどう乗り越えるか」「自分でやりたいという気持ちをどう育てるか」「保育園・幼稚園との連携は？」—— 幼児期特有の悩みに特化したプログラムです。</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.8rem">言葉の発達や社会性が急速に育まれる1〜5歳の時期。この時期の子どもとの向き合い方を、遊びやワークを通じて実践的に学びます。</p>
+    <div class="prog-infographic" style="background:linear-gradient(135deg,var(--sky-pale) 0%,var(--blush) 100%)">
+      <div class="infograph-item"><span class="num" style="color:#4a90b8">1〜6</span><span class="unit">歳</span><div class="desc">就学前の幼児を<br>持つ家族が対象</div></div>
+      <div class="infograph-item"><span class="num" style="color:#4a90b8">2</span><span class="unit">日間</span><div class="desc">遊びと対話で<br>学ぶプログラム</div></div>
+      <div class="infograph-item"><span class="num" style="color:#4a90b8">90</span><span class="unit">%</span><div class="desc">「子どもへの<br>関わりが変わった」</div></div>
     </div>
+  </div>
+  <div>
+    <div class="prog-detail-photo">
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=85" alt="BP3プログラム">
+      <div class="prog-detail-photo-caption">子どもの「やりたい！」を大切に。自律性を育む関わり方を学びます</div>
+    </div>
+  </div>
+</div>
+
+<!-- 対象者 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin-bottom:1.2rem;color:var(--charcoal)">こんな方におすすめ</h4>
+<div class="prog-target-box">
+  <div class="target-item"><div class="target-icon">🧒</div><div class="target-label">1〜5歳の幼児を<br>育てている親御さん</div></div>
+  <div class="target-item"><div class="target-icon">😤</div><div class="target-label">イヤイヤ期・かんしゃく<br>に困っている方</div></div>
+  <div class="target-item"><div class="target-icon">🏫</div><div class="target-label">入園・就学前後の<br>変化が不安な方</div></div>
+</div>
+
+<!-- セッション -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">2日間のプログラム内容</h4>
+<div class="prog-session-grid">
+  <div class="prog-session bp3">
+    <div class="prog-session-num">Day 1</div>
+    <div class="prog-session-title">幼児の発達を知る・「イヤイヤ」を理解する</div>
+    <div class="prog-session-desc">1〜5歳の子どもの脳と心の発達について学びます。「イヤイヤ期」「かんしゃく」「こだわり」はなぜ起きるのか、発達の視点から理解することで、子どもの行動を受け止める力が育まれます。遊びを通じた発達支援の実践ワークも行います。</div>
+  </div>
+  <div class="prog-session bp3">
+    <div class="prog-session-num">Day 2</div>
+    <div class="prog-session-title">自律性を育てる・社会性を広げる</div>
+    <div class="prog-session-desc">「自分でやりたい」という気持ちを尊重しながら安全に見守る方法、保育園・幼稚園の先生との連携の取り方、小学校入学前の準備など、就学に向けた見通しを持てる内容を扱います。幼児との遊び方の実践ワークも充実しています。</div>
+  </div>
+</div>
+
+<!-- 年齢別ポイント -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">年齢別 子育てのポイント</h4>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem">
+  <div style="background:var(--sky-pale);border-radius:14px;padding:20px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#4a90b8;margin-bottom:.5rem">1〜2歳</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:.5rem;color:var(--charcoal)">自己主張の始まり</div>
+    <div style="font-size:.85rem;color:var(--mid);line-height:1.8">「イヤ！」「自分でやる！」が増える時期。欲求を否定せず、安全な環境で挑戦させる関わり方を学びます。</div>
+  </div>
+  <div style="background:var(--sky-pale);border-radius:14px;padding:20px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#4a90b8;margin-bottom:.5rem">3〜4歳</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:.5rem;color:var(--charcoal)">社会性と想像力の発達</div>
+    <div style="font-size:.85rem;color:var(--mid);line-height:1.8">「なぜ？」「どうして？」が爆発する時期。友だちとの関係づくり、ルールの理解、感情の調整を育む関わりを学びます。</div>
+  </div>
+  <div style="background:var(--sky-pale);border-radius:14px;padding:20px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#4a90b8;margin-bottom:.5rem">5〜6歳</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:.5rem;color:var(--charcoal)">就学前の準備</div>
+    <div style="font-size:.85rem;color:var(--mid);line-height:1.8">自立心・集中力・協調性が育つ時期。小学校入学に向けた生活習慣、不安な気持ちへの寄り添い方を一緒に考えます。</div>
+  </div>
+</div>
+
+<!-- 参加者の声 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">参加したパパ・ママの声</h4>
+<div class="prog-voices-mini">
+  <div class="voice-mini bp3">
+    <div class="voice-mini-text">「イヤイヤ期が本当につらくて、毎日怒鳴ってしまっていました。BP3で子どもの気持ちを理解する視点を学んでから、少し余裕を持って向き合えるようになりました。」</div>
+    <div class="voice-mini-name">BP3参加・30代ママ（3歳のお子さん）</div>
+  </div>
+  <div class="voice-mini bp3">
+    <div class="voice-mini-text">「遊びが子どもの学びに直結しているということを初めてちゃんと学びました。公園での遊び方も変わって、子どもが以前より生き生きしています。」</div>
+    <div class="voice-mini-name">BP3参加・30代パパ（4歳のお子さん）</div>
+  </div>
+  <div class="voice-mini bp3">
+    <div class="voice-mini-text">「保育園の先生とのコミュニケーションが苦手でした。プログラムで先生への伝え方を練習できたのがとても役立っています。」</div>
+    <div class="voice-mini-name">BP3参加・20代ママ（2歳のお子さん）</div>
+  </div>
+  <div class="voice-mini bp3">
+    <div class="voice-mini-text">「就学前の不安が大きかったのですが、同じ気持ちの親御さんたちと話して、準備の具体的なイメージができました。グループで学ぶ力を感じました。」</div>
+    <div class="voice-mini-name">BP3参加・30代ママ（5歳のお子さん）</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">よくある質問（BP3）</h4>
+<div class="prog-qa">
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">子どもを連れて参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">実施施設によって異なります。託児サービスを提供している会場もあります。詳しくは実施施設またはKKI事務局へお問合せください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">BP1・BP2を受けていなくても参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">はい、BP1・BP2とは独立したプログラムですのでどなたでも参加できます。対象のお子さんが1〜就学前の年齢であれば、第1子でも第2子以降でも参加いただけます。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">ひとり親でも参加できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">もちろんです。お子さんのことを大切に思っている保護者の方であれば、どのような家族の形でも参加いただけます。</div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:2.5rem">
+  <div style="background:var(--sky-pale);border-radius:16px;padding:28px">
+    <h4 style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.8rem;color:var(--charcoal)">🎓 BP2・BP3 共通ファシリテーター資格</h4>
+    <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">BP3のファシリテーターは「BP2・BP3ファシリテーター養成講座」で資格を取得します。BP2とセットで学べます。</p>
+    <button class="btn-p" style="background:#4a90b8;font-size:0.85rem" onclick="showPage('schedule')">養成講座を申し込む</button>
+  </div>
+  <div style="background:var(--warm-white);border-radius:16px;padding:28px">
+    <h4 style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.8rem;color:var(--charcoal)">🗾 各地の取り組み</h4>
+    <p style="font-size:0.92rem;color:var(--mid);line-height:1.9;margin-bottom:1rem">全国の保育所・幼稚園・子育て支援センターでBP3プログラムが実施されています。お住まいの地域での実施状況はKKI事務局へお問合せください。</p>
+    <button class="btn-s" style="font-size:0.85rem" onclick="showPage('contact')">地域の実施状況を確認</button>
+  </div>
+</div>
+
+<div class="prog-ribbon" style="background:#4a7fa8">
+  <div><div class="prog-ribbon-text">BP3プログラムを地域で実施したい方へ</div><div class="prog-ribbon-sub">BP2・BP3ファシリテーター養成講座の詳細・お申込みはこちら</div></div>
+  <button class="btn-w" onclick="showPage('schedule')">養成講座スケジュールを見る →</button>
+</div>
+```
+
   </div>
 
   <!-- FACI -->
 
-  <div class="sch-content" id="prog-content-faci" style="margin-top:2rem">
-    <div class="faci-layout">
-      <div class="faci-visual">
-        <div class="faci-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="ファシリテーター"></div>
-        <div class="faci-float">
-          <div class="faci-float-num">50<span style="font-size:1.416rem">+</span></div>
-          <div class="faci-float-text">全国で活躍するBPファシリテーター養成講座の開催期数</div>
-        </div>
-      </div>
-      <div>
-        <p class="sec-label">Facilitator</p>
-        <h2 class="sec-title">BPファシリテーターとは</h2>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:1.5rem">BPファシリテーターは、KKIが認定する子育て支援の専門家です。保健師・助産師・保育士・社会福祉士など、さまざまな専門職の方が取得しています。</p>
-        <p style="font-size:1.003rem;color:var(--mid);line-height:2.1;margin-bottom:2rem">養成講座を修了すると、地域の子育て支援センターや病院・行政施設でBPプログラムを実施できるようになります。</p>
-        <div class="faci-steps">
-          <div class="faci-step">
-            <div class="step-num">1</div>
-            <div><div class="step-title">養成講座に参加</div><div class="step-desc">2日間（合計約12時間）の集中講座。大阪・横浜の両会場で年複数回開催。</div></div>
-          </div>
-          <div class="faci-step">
-            <div class="step-num">2</div>
-            <div><div class="step-title">認定取得</div><div class="step-desc">講座修了後、KKIよりファシリテーター認定証を発行。</div></div>
-          </div>
-          <div class="faci-step">
-            <div class="step-num">3</div>
-            <div><div class="step-title">地域で実施</div><div class="step-desc">所属先やお住まいの地域でBPプログラムを実施。行政・病院・地域団体と連携。</div></div>
-          </div>
-          <div class="faci-step">
-            <div class="step-num">4</div>
-            <div><div class="step-title">登録更新・研修会</div><div class="step-desc">定期的な登録更新と研修会参加で、スキルをアップデートし続けられます。</div></div>
-          </div>
-        </div>
-        <div style="margin-top:2rem;display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn-p" onclick="showPage('schedule')">養成講座に申し込む</button>
-          <button class="btn-s" onclick="showPage('about')">行政担当者の方へ</button>
-        </div>
+  <div class="sch-content" id="prog-content-faci" style="margin-top:2.5rem">
+
+```
+<!-- ヒーロー -->
+<div class="faci-layout" style="margin-bottom:3rem">
+  <div class="faci-visual">
+    <div class="faci-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="ファシリテーター"></div>
+    <div class="faci-float">
+      <div class="faci-float-num">50<span style="font-size:1.416rem">+</span></div>
+      <div class="faci-float-text">全国で開催されたBPファシリテーター養成講座の期数</div>
+    </div>
+  </div>
+  <div>
+    <p class="sec-label">Facilitator</p>
+    <h2 class="sec-title">BPファシリテーターとは</h2>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:1.2rem">BPファシリテーターは、KKIが認定する子育て支援の専門家です。参加者が安心して語り合えるグループの場をつくり、子育ての喜びや悩みを分かち合えるよう導く、その地域の「子育て応援リーダー」です。</p>
+    <p style="font-size:1.03rem;color:var(--mid);line-height:2.15;margin-bottom:2rem">保健師・助産師・保育士・社会福祉士・幼稚園教諭・子育て支援員など、さまざまな専門職の方が資格を取得し、全国各地で活躍しています。</p>
+    <!-- 取得者の職種グラフ風 -->
+    <div style="background:var(--warm-white);border-radius:14px;padding:24px;margin-bottom:2rem">
+      <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;margin-bottom:1.2rem;color:var(--charcoal)">ファシリテーター取得者の主な職種</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--mid)"><div style="height:10px;border-radius:5px;background:var(--sage);flex:0 0 65%"></div>保健師・助産師 65%</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--mid)"><div style="height:10px;border-radius:5px;background:var(--terracotta);flex:0 0 20%"></div>保育士・幼稚園教諭 20%</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--mid)"><div style="height:10px;border-radius:5px;background:var(--sand);flex:0 0 15%"></div>社会福祉士・その他 15%</div>
       </div>
     </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn-p" onclick="showPage('schedule')">養成講座に申し込む</button>
+      <button class="btn-s" onclick="showPage('about')">行政担当者の方へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- 認定までのステップ -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin-bottom:1.5rem;color:var(--charcoal)">ファシリテーター認定までの流れ</h4>
+<div class="prog-flow">
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--terracotta)">1</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">養成講座への申込み</div>
+      <div class="prog-flow-desc">KKI事務局へお問合せいただくか、お問合せフォームよりお申込みください。開催2週間前までのお申込みを推奨します。受講料については事務局へお問合せください。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--terracotta-light)">2</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">2日間の集中養成講座（約12時間）</div>
+      <div class="prog-flow-desc">大阪または横浜の会場で開催。BPプログラムの理論的背景・グループファシリテーションの技法・実際のプログラム進行の実習を行います。少人数制で丁寧に指導します。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage)">3</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">認定証の発行</div>
+      <div class="prog-flow-desc">講座修了後、KKIよりBPファシリテーター認定証を発行。これにより地域でBPプログラムを実施する資格が得られます。（BP1とBP2/3は別資格です）</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage-dark)">4</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">地域でのプログラム実施</div>
+      <div class="prog-flow-desc">所属先（自治体・病院・子育て支援センター・保育所など）でBPプログラムを実施します。導入にあたっての相談はKKI事務局がサポートします。</div>
+    </div>
+  </div>
+  <div class="prog-flow-item">
+    <div class="prog-flow-left"><div class="prog-flow-circle" style="background:var(--sage-light)">5</div></div>
+    <div class="prog-flow-right">
+      <div class="prog-flow-title">定期的な登録更新・研修会への参加</div>
+      <div class="prog-flow-desc">ファシリテーター資格は定期的な登録更新が必要です。KKI主催の研修会に参加することでスキルアップと情報交換が行えます。全国のファシリテーターとのネットワークも広がります。</div>
+    </div>
+  </div>
+</div>
+
+<!-- BP1とBP2/3の違い -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1.2rem;color:var(--charcoal)">BP1資格とBP2・BP3資格の違い</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:2rem">
+  <div style="background:var(--terracotta-pale);border-radius:16px;padding:28px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--terracotta);margin-bottom:.5rem">BP1</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:500;margin-bottom:.8rem">BP1ファシリテーター</div>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;color:var(--mid);line-height:1.8">
+      <li style="display:flex;gap:8px"><span style="color:var(--terracotta)">✓</span>「赤ちゃんがきた！」の実施が可能</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--terracotta)">✓</span>2日間の「BP1ファシリテーター養成講座」で取得</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--terracotta)">✓</span>大阪・横浜で年4回以上開催</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--terracotta)">✓</span>定期的な登録更新・研修会あり</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--terracotta)">✓</span>解説DVDで自習も可能</li>
+    </ul>
+  </div>
+  <div style="background:var(--sage-pale);border-radius:16px;padding:28px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--sage-dark);margin-bottom:.5rem">BP2 / 3</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:500;margin-bottom:.8rem">BP2・BP3ファシリテーター</div>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;color:var(--mid);line-height:1.8">
+      <li style="display:flex;gap:8px"><span style="color:var(--sage-dark)">✓</span>「きょうだいが生まれた！」と「幼児とともに！」の実施が可能</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--sage-dark)">✓</span>「BP2・BP3ファシリテーター養成講座」（2日間）で取得</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--sage-dark)">✓</span>大阪・横浜で年2回以上開催</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--sage-dark)">✓</span>定期的な登録更新・研修会あり</li>
+      <li style="display:flex;gap:8px"><span style="color:var(--sage-dark)">✓</span>BP1資格との併用も可能</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ファシリテーターの声 -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">活躍するファシリテーターの声</h4>
+<div class="prog-voices-mini">
+  <div class="voice-mini">
+    <div class="voice-mini-text">「保健師として産後訪問をしていましたが、BPプログラムで複数の家族が一緒に学び合う場をつくれるようになったことで、支援の幅が大きく広がりました。」</div>
+    <div class="voice-mini-name">BP1ファシリテーター・保健師（大阪府）</div>
+  </div>
+  <div class="voice-mini">
+    <div class="voice-mini-text">「参加者のみなさんが回を重ねるごとに表情が変わっていくのを見るのが一番の喜びです。ファシリテーターとして学べることがこんなにたくさんあるとは思っていませんでした。」</div>
+    <div class="voice-mini-name">BP2/3ファシリテーター・保育士（神奈川県）</div>
+  </div>
+  <div class="voice-mini">
+    <div class="voice-mini-text">「自治体の子育て支援担当としてBP1を導入しました。地域の保健師たちが資格を取得し、現在は市内3か所で定期実施できるようになりました。」</div>
+    <div class="voice-mini-name">BP1ファシリテーター・自治体職員（兵庫県）</div>
+  </div>
+  <div class="voice-mini">
+    <div class="voice-mini-text">「養成講座でKKIの先生方の熱意に触れ、自分も地域の子育てに貢献したいという気持ちが強くなりました。ファシリテーター仲間とのつながりも財産です。」</div>
+    <div class="voice-mini-name">BP1/BP2/3ファシリテーター・助産師（東京都）</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<h4 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;margin:2.5rem 0 1rem;color:var(--charcoal)">よくある質問（ファシリテーター）</h4>
+<div class="prog-qa">
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">専門職でなくても養成講座を受講できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">基本的には子育て支援に携わる専門職の方を対象としていますが、子育て支援に熱意を持って取り組まれている方であればご参加いただける場合もあります。詳しくはKKI事務局へお問合せください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">個人でプログラムを実施できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">認定ファシリテーターは、所属する施設・組織を通じてプログラムを実施することが基本です。個人での独立開業的な実施については、KKI事務局にご相談ください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">登録更新の頻度と方法は？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">登録更新は数年ごとに必要です（BP1とBP2/3で異なる場合があります）。更新のタイミングでKKI事務局よりご連絡します。研修会への参加や更新手続きについては事務局へお問合せください。</div>
+  </div>
+  <div class="prog-q" onclick="toggleQ(this)">
+    <div class="prog-q-header"><span class="prog-q-label">BP1資格を持っていれば、BP2/3の講座は短縮できますか？</span><div class="prog-q-icon">＋</div></div>
+    <div class="prog-q-body">BP1とBP2/3は別々の養成講座でそれぞれ取得する資格です。短縮制度は設けていませんが、BP1の経験はBP2/3の養成講座でも大きな財産になります。</div>
+  </div>
+</div>
+
+<div class="prog-ribbon">
+  <div><div class="prog-ribbon-text">BPファシリテーターとして地域の子育てを支えてみませんか</div><div class="prog-ribbon-sub">大阪・横浜で年複数回開催。まずはお気軽にお問合せください</div></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <button class="btn-w" onclick="showPage('schedule')">養成講座日程を見る →</button>
+    <button class="btn-w" style="border-color:rgba(255,255,255,.2)" onclick="showPage('contact')">お問合せ</button>
+  </div>
+</div>
+```
+
   </div>
 </section>
 </div>
@@ -1254,6 +1757,11 @@ function switchSchTab(name) {
     const el = document.getElementById(v);
     if (el) el.classList.toggle('active', k === name);
   });
+}
+
+// ─── FAQ toggle ───
+function toggleQ(el) {
+  el.classList.toggle('open');
 }
 
 // ─── Mobile menu ───
