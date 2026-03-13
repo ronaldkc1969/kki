@@ -352,6 +352,97 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
 .prog-ribbon-text{font-family:‘Noto Serif JP’,serif;font-size:1rem;line-height:1.7}
 .prog-ribbon-sub{font-size:0.85rem;color:rgba(255,255,255,.65);margin-top:4px}
 
+/* ─── MEMBER PAGE ─── */
+.member-bg{min-height:100vh;padding-top:68px;background:linear-gradient(160deg,var(–blush) 0%,var(–cream) 60%)}
+
+/* ログイン画面 */
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 68px);padding:40px 20px}
+.login-card{background:#fff;border-radius:24px;padding:52px 48px;max-width:420px;width:100%;box-shadow:0 12px 60px rgba(80,50,30,.10);position:relative;overflow:hidden}
+.login-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(–terracotta),var(–sage))}
+.login-logo{text-align:center;margin-bottom:2rem}
+.login-logo-circle{width:64px;height:64px;border-radius:50%;background:var(–blush);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.login-title{font-family:‘Noto Serif JP’,serif;font-size:1.3rem;font-weight:400;color:var(–charcoal);margin-bottom:.3rem}
+.login-sub{font-size:.85rem;color:var(–light)}
+.login-field{margin-bottom:1.4rem}
+.login-label{display:block;font-size:.85rem;color:var(–mid);margin-bottom:.5rem;letter-spacing:.06em}
+.login-input{width:100%;padding:13px 16px;border:1.5px solid var(–border);border-radius:10px;font-family:‘Noto Sans JP’,sans-serif;font-size:.95rem;color:var(–charcoal);background:var(–warm-white);outline:none;transition:border-color .2s}
+.login-input:focus{border-color:var(–sage)}
+.login-btn{width:100%;padding:14px;background:var(–sage-dark);color:#fff;border:none;border-radius:10px;font-family:‘Noto Serif JP’,serif;font-size:1rem;letter-spacing:.1em;cursor:pointer;transition:opacity .2s;margin-top:.5rem}
+.login-btn:hover{opacity:.85}
+.login-error{background:#fff0ed;border:1px solid #f5c4b8;border-radius:8px;padding:10px 14px;font-size:.85rem;color:var(–terracotta);margin-bottom:1rem;display:none}
+.login-error.show{display:block}
+
+/* 会員エリア */
+.member-area{display:none;padding:40px 5vw 80px}
+.member-area.active{display:block}
+.member-header{background:var(–sage-dark);border-radius:20px;padding:36px 40px;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:2.5rem}
+.member-header-left{display:flex;align-items:center;gap:16px}
+.member-avatar{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.member-name{font-family:‘Noto Serif JP’,serif;font-size:1.2rem;font-weight:400}
+.member-id-badge{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:2px}
+.member-logout{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:8px 18px;font-size:.85rem;cursor:pointer;font-family:‘Noto Sans JP’,sans-serif;transition:background .2s}
+.member-logout:hover{background:rgba(255,255,255,.2)}
+
+.member-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:2.5rem}
+.member-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 20px rgba(80,50,30,.06)}
+.member-card-icon{font-size:2rem;margin-bottom:.8rem}
+.member-card-title{font-family:‘Noto Serif JP’,serif;font-size:1rem;font-weight:500;margin-bottom:.5rem;color:var(–charcoal)}
+.member-card-val{font-family:‘Cormorant Garamond’,serif;font-size:2.4rem;line-height:1;color:var(–terracotta);margin-bottom:.3rem}
+.member-card-desc{font-size:.82rem;color:var(–light);line-height:1.7}
+
+.member-section{background:#fff;border-radius:16px;padding:32px;margin-bottom:1.5rem;box-shadow:0 2px 20px rgba(80,50,30,.06)}
+.member-section-title{font-family:‘Noto Serif JP’,serif;font-size:1.1rem;font-weight:500;margin-bottom:1.2rem;color:var(–charcoal);padding-bottom:.8rem;border-bottom:1.5px solid var(–border);display:flex;align-items:center;gap:.6rem}
+.ms-icon{font-size:1.1rem}
+
+/* お知らせリスト */
+.m-notice-list{display:flex;flex-direction:column;gap:0}
+.m-notice{display:grid;grid-template-columns:100px 1fr auto;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(–border)}
+.m-notice:last-child{border-bottom:none}
+.m-notice-date{font-family:‘Cormorant Garamond’,serif;font-size:.9rem;color:var(–light)}
+.m-notice-body{font-size:.92rem;color:var(–charcoal);line-height:1.7}
+.m-notice-tag{font-size:.72rem;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.tag-new{background:var(–terracotta-pale);color:var(–terracotta)}
+.tag-info{background:var(–sage-pale);color:var(–sage-dark)}
+.tag-event{background:var(–sky-pale);color:#4a7fa8}
+
+/* 書類DL */
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.doc-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(–border);border-radius:10px;cursor:pointer;transition:border-color .2s;text-decoration:none}
+.doc-item:hover{border-color:var(–sage)}
+.doc-icon{font-size:1.5rem;flex-shrink:0}
+.doc-label{font-size:.88rem;color:var(–charcoal);line-height:1.5}
+.doc-type{font-size:.75rem;color:var(–light)}
+
+/* 会費状況 */
+.fee-status{display:flex;gap:20px;flex-wrap:wrap}
+.fee-box{flex:1;min-width:140px;background:var(–warm-white);border-radius:12px;padding:20px;text-align:center}
+.fee-box-label{font-size:.8rem;color:var(–light);margin-bottom:.4rem}
+.fee-box-val{font-family:‘Noto Serif JP’,serif;font-size:1.05rem;color:var(–charcoal)}
+.fee-box-val.ok{color:var(–sage-dark)}
+.fee-box-val.pending{color:var(–terracotta)}
+
+/* 登録更新 */
+.renewal-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.renewal-table th{text-align:left;padding:10px 12px;background:var(–blush);font-weight:500;font-family:‘Noto Serif JP’,serif;font-size:.85rem}
+.renewal-table td{padding:12px;border-bottom:1px solid var(–border);color:var(–mid);line-height:1.7}
+.renewal-table tr:last-child td{border-bottom:none}
+.status-pill{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.75rem}
+.pill-ok{background:var(–sage-pale);color:var(–sage-dark)}
+.pill-soon{background:#fff3cc;color:#8a6400}
+.pill-need{background:var(–terracotta-pale);color:var(–terracotta)}
+
+@media(max-width:900px){
+.member-grid{grid-template-columns:1fr 1fr}
+.doc-grid{grid-template-columns:1fr}
+.login-card{padding:40px 28px}
+}
+@media(max-width:600px){
+.member-grid{grid-template-columns:1fr}
+.member-header{padding:24px 20px}
+.m-notice{grid-template-columns:80px 1fr;grid-template-rows:auto auto}
+.m-notice-tag{grid-column:2}
+}
+
 /* ─── REVEAL ANIMATION ─── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -417,7 +508,10 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
     <li><button onclick="showPage('books')">書籍案内</button></li>
     <li><button onclick="showPage('membership')">入会案内</button></li>
   </ul>
-  <button class="nav-cta" onclick="showPage('contact')">お問合せ</button>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button class="nav-cta" id="nav-member-btn" onclick="showPage('member')" style="background:var(--terracotta);border-color:var(--terracotta);color:#fff">会員ログイン</button>
+    <button class="nav-cta" onclick="showPage('contact')">お問合せ</button>
+  </div>
   <div class="hamburger" id="hamburgerBtn" onclick="openMobileMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -434,6 +528,7 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
   <button onclick="showPage('forum');closeMobileMenu()">フォーラム</button>
   <button onclick="showPage('books');closeMobileMenu()">書籍案内</button>
   <button onclick="showPage('membership');closeMobileMenu()">入会案内</button>
+  <button onclick="showPage('member');closeMobileMenu()" style="color:var(--terracotta)">会員ログイン</button>
   <button onclick="showPage('contact');closeMobileMenu()">お問合せ</button>
 </div>
 
@@ -1457,6 +1552,266 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
 
 <!-- ══════════════ FOOTER (shared) ══════════════ -->
 
+<!-- ══════════════════════════════════════
+     PAGE: MEMBER
+══════════════════════════════════════ -->
+
+<div class="page" id="page-member">
+<div class="member-bg">
+
+  <!-- ─── ログイン画面 ─── -->
+
+  <div class="login-wrap" id="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-logo-circle">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="19" fill="none" stroke="#6b9478" stroke-width="1.5"/>
+            <circle cx="15" cy="14" r="5" fill="#c4785a" opacity=".7"/>
+            <path d="M8 30 Q15 22 22 30" stroke="#c4785a" stroke-width="1.5" fill="none" opacity=".7"/>
+            <circle cx="27" cy="22" r="3.5" fill="#6b9478" opacity=".8"/>
+            <path d="M22 32 Q27 26 32 32" stroke="#6b9478" stroke-width="1.5" fill="none" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="login-title">会員ログイン</div>
+        <div class="login-sub">KKI 会員専用ページ</div>
+      </div>
+
+```
+  <div class="login-error" id="login-error">会員番号またはパスワードが正しくありません。</div>
+
+  <div class="login-field">
+    <label class="login-label" for="input-member-id">会員番号</label>
+    <input class="login-input" id="input-member-id" type="text" placeholder="例：001" autocomplete="username" onkeydown="if(event.key==='Enter')doLogin()">
+  </div>
+  <div class="login-field">
+    <label class="login-label" for="input-password">パスワード</label>
+    <input class="login-input" id="input-password" type="password" placeholder="パスワードを入力" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+  </div>
+  <button class="login-btn" onclick="doLogin()">ログイン</button>
+
+  <p style="text-align:center;font-size:.78rem;color:var(--light);margin-top:1.5rem;line-height:1.9">
+    会員番号・パスワードをお忘れの方は<br>
+    KKI事務局（0745-75-0298）までお問合せください。
+  </p>
+</div>
+```
+
+  </div>
+
+  <!-- ─── 会員エリア（ログイン後） ─── -->
+
+  <div class="member-area" id="member-area" style="padding-top:40px">
+
+```
+<!-- ヘッダー -->
+<div class="member-header">
+  <div class="member-header-left">
+    <div class="member-avatar">👤</div>
+    <div>
+      <div class="member-name" id="member-display-name">会員 001</div>
+      <div class="member-id-badge">会員番号：<span id="member-display-id">001</span>　／　正会員</div>
+    </div>
+  </div>
+  <button class="member-logout" onclick="doLogout()">ログアウト</button>
+</div>
+
+<!-- サマリーカード -->
+<div class="member-grid">
+  <div class="member-card">
+    <div class="member-card-icon">📋</div>
+    <div class="member-card-title">会員資格</div>
+    <div class="member-card-val" style="font-size:1.4rem;font-family:'Noto Serif JP',serif;color:var(--sage-dark)">正会員</div>
+    <div class="member-card-desc">2025年4月1日 〜 2026年3月31日</div>
+  </div>
+  <div class="member-card">
+    <div class="member-card-icon">🎓</div>
+    <div class="member-card-title">取得資格</div>
+    <div class="member-card-val">1</div>
+    <div class="member-card-desc">BP1ファシリテーター（登録中）</div>
+  </div>
+  <div class="member-card">
+    <div class="member-card-icon">📅</div>
+    <div class="member-card-title">次回更新期日</div>
+    <div class="member-card-val" style="font-size:1.6rem;color:var(--sand)">2027.3</div>
+    <div class="member-card-desc">BP1ファシリテーター登録更新</div>
+  </div>
+</div>
+
+<!-- お知らせ -->
+<div class="member-section">
+  <div class="member-section-title"><span class="ms-icon">🔔</span>KKIからのお知らせ</div>
+  <div class="m-notice-list">
+    <div class="m-notice">
+      <div class="m-notice-date">2026.03.01</div>
+      <div class="m-notice-body">2026年度ファシリテーター養成講座（BP1 第49・50期、BP2・BP3 第8期）の受付を開始しました。詳細は<button onclick="showPage('schedule')" style="background:none;border:none;color:var(--terracotta);cursor:pointer;font-size:.92rem;padding:0;text-decoration:underline">養成講座ページ</button>をご覧ください。</div>
+      <span class="m-notice-tag tag-new">NEW</span>
+    </div>
+    <div class="m-notice">
+      <div class="m-notice-date">2026.02.15</div>
+      <div class="m-notice-body">2026年度 会費納入のご案内を会員の皆様にEメールにてお送りしました。ご確認をお願いします。</div>
+      <span class="m-notice-tag tag-info">案内</span>
+    </div>
+    <div class="m-notice">
+      <div class="m-notice-date">2026.01.10</div>
+      <div class="m-notice-body">BP2・BP3ファシリテーター登録更新制度が2026年度より開始します。対象の方には個別にEメールでお知らせします。</div>
+      <span class="m-notice-tag tag-info">案内</span>
+    </div>
+    <div class="m-notice">
+      <div class="m-notice-date">2025.10.20</div>
+      <div class="m-notice-body">第1回BP2・BP3ファシリテーター登録更新講習会（オンライン）を2026年10月17日（土）に開催します。対象：2018〜2022年度受講生。</div>
+      <span class="m-notice-tag tag-event">イベント</span>
+    </div>
+    <div class="m-notice">
+      <div class="m-notice-date">2025.09.01</div>
+      <div class="m-notice-body">BPプログラム参加者用テキスト（カラー図解版・新版）の販売を開始しました。ご希望の方はKKI事務局へお問合せください。</div>
+      <span class="m-notice-tag tag-info">案内</span>
+    </div>
+  </div>
+</div>
+
+<!-- 2カラム：書類DL ＋ 会費状況 -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:1.5rem">
+
+  <!-- 書類ダウンロード -->
+  <div class="member-section" style="margin-bottom:0">
+    <div class="member-section-title"><span class="ms-icon">📄</span>書類・資料ダウンロード</div>
+    <div class="doc-grid">
+      <a href="https://www.kosodatekki.com/docs/bp_program.pdf" target="_blank" class="doc-item">
+        <span class="doc-icon">📰</span>
+        <div>
+          <div class="doc-label">BPプログラムパンフレット</div>
+          <div class="doc-type">PDF</div>
+        </div>
+      </a>
+      <a href="https://www.kosodatekki.com/docs/2026bp1_osaka_youseikouza.pdf" target="_blank" class="doc-item">
+        <span class="doc-icon">📋</span>
+        <div>
+          <div class="doc-label">BP1養成講座チラシ（大阪）</div>
+          <div class="doc-type">PDF</div>
+        </div>
+      </a>
+      <a href="https://www.kosodatekki.com/docs/2026bp1_yokohama_youseikouza.pdf" target="_blank" class="doc-item">
+        <span class="doc-icon">📋</span>
+        <div>
+          <div class="doc-label">BP1養成講座チラシ（横浜）</div>
+          <div class="doc-type">PDF</div>
+        </div>
+      </a>
+      <a href="https://www.kosodatekki.com/docs/2026bp2_3_youseikouza.pdf" target="_blank" class="doc-item">
+        <span class="doc-icon">📋</span>
+        <div>
+          <div class="doc-label">BP2・3養成講座チラシ</div>
+          <div class="doc-type">PDF</div>
+        </div>
+      </a>
+      <a href="https://www.kosodatekki.com/docs/2026bp1_osaka_youseikouza.doc" target="_blank" class="doc-item">
+        <span class="doc-icon">📝</span>
+        <div>
+          <div class="doc-label">BP1申込書（大阪）</div>
+          <div class="doc-type">Word</div>
+        </div>
+      </a>
+      <a href="https://www.kosodatekki.com/docs/2026bp2_3_youseikouza.doc" target="_blank" class="doc-item">
+        <span class="doc-icon">📝</span>
+        <div>
+          <div class="doc-label">BP2・3申込書</div>
+          <div class="doc-type">Word</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 会費・資格状況 -->
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div class="member-section" style="margin-bottom:0">
+      <div class="member-section-title"><span class="ms-icon">💳</span>会費状況</div>
+      <div class="fee-status">
+        <div class="fee-box">
+          <div class="fee-box-label">会費区分</div>
+          <div class="fee-box-val">正会員</div>
+        </div>
+        <div class="fee-box">
+          <div class="fee-box-label">年会費</div>
+          <div class="fee-box-val">¥5,000</div>
+        </div>
+        <div class="fee-box">
+          <div class="fee-box-label">2026年度納入</div>
+          <div class="fee-box-val ok">✓ 済</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-section" style="margin-bottom:0;flex:1">
+      <div class="member-section-title"><span class="ms-icon">🔄</span>ファシリテーター登録更新</div>
+      <table class="renewal-table">
+        <thead>
+          <tr><th>資格</th><th>取得年度</th><th>次回更新</th><th>状態</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BP1</td>
+            <td>2020年度</td>
+            <td>2026年度末</td>
+            <td><span class="status-pill pill-soon">要確認</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:.78rem;color:var(--light);margin-top:10px;line-height:1.8">登録更新の詳細は事務局（0745-75-0298）へお問合せください。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 実施報告・研修会 -->
+<div class="member-section">
+  <div class="member-section-title"><span class="ms-icon">📊</span>プログラム実施記録（仮）</div>
+  <table class="renewal-table">
+    <thead><tr><th>実施日</th><th>プログラム</th><th>実施場所</th><th>参加組数</th><th>状態</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>2025年11月</td>
+        <td><span class="badge badge-bp1" style="font-size:.75rem;padding:2px 10px">BP1</span></td>
+        <td>○○子育て支援センター</td>
+        <td>6組</td>
+        <td><span class="status-pill pill-ok">報告済</span></td>
+      </tr>
+      <tr>
+        <td>2025年 6月</td>
+        <td><span class="badge badge-bp1" style="font-size:.75rem;padding:2px 10px">BP1</span></td>
+        <td>○○保健センター</td>
+        <td>7組</td>
+        <td><span class="status-pill pill-ok">報告済</span></td>
+      </tr>
+      <tr>
+        <td>2025年 2月</td>
+        <td><span class="badge badge-bp1" style="font-size:.75rem;padding:2px 10px">BP1</span></td>
+        <td>○○子育て支援センター</td>
+        <td>5組</td>
+        <td><span class="status-pill pill-ok">報告済</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.82rem;color:var(--light);margin-top:12px">※実施報告の提出はKKI事務局へご連絡ください。</p>
+</div>
+
+<!-- お問合せ先 -->
+<div style="background:linear-gradient(135deg,var(--sage-dark),#2a5040);border-radius:16px;padding:32px;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+  <div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:1.05rem;margin-bottom:.5rem">KKI事務局へのお問合せ</div>
+    <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.9">
+      NPO法人 こころの子育てインターねっと関西<br>
+      〒636-0143 奈良県生駒郡斑鳩町神南4-6-35<br>
+      Tel / Fax: 0745-75-0298
+    </div>
+  </div>
+  <button class="btn-w" onclick="showPage('contact')">お問合せフォームへ</button>
+</div>
+```
+
+  </div><!-- /member-area -->
+</div><!-- /member-bg -->
+</div><!-- /page-member -->
+
 <footer>
   <div class="footer-top">
     <div>
@@ -1506,8 +1861,27 @@ footer{background:#1a1a1a;color:rgba(255,255,255,.45);padding:64px 8vw 36px}
 </footer>
 
 <script>
+// ─── Member auth state ───
+const MEMBERS = { '001': '123' };  // 会員番号: パスワード
+let memberLoggedIn = false;
+let currentMemberId = null;
+
 // ─── Page routing ───
 function showPage(id, progTab, schTab) {
+  // 会員ページへのアクセス制御
+  if (id === 'member') {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-member').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (memberLoggedIn) {
+      document.getElementById('login-wrap').style.display = 'none';
+      document.getElementById('member-area').classList.add('active');
+    } else {
+      document.getElementById('login-wrap').style.display = 'flex';
+      document.getElementById('member-area').classList.remove('active');
+    }
+    return;
+  }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + id);
   if (target) { target.classList.add('active'); }
@@ -1515,6 +1889,46 @@ function showPage(id, progTab, schTab) {
   if (progTab) switchProgTab(progTab);
   if (schTab) switchSchTab(schTab);
   initReveal();
+}
+
+// ─── Login ───
+function doLogin() {
+  const id  = document.getElementById('input-member-id').value.trim();
+  const pw  = document.getElementById('input-password').value;
+  const err = document.getElementById('login-error');
+
+  if (MEMBERS[id] && MEMBERS[id] === pw) {
+    memberLoggedIn  = true;
+    currentMemberId = id;
+    err.classList.remove('show');
+    // 表示更新
+    document.getElementById('member-display-name').textContent = '会員 ' + id;
+    document.getElementById('member-display-id').textContent = id;
+    // ログインボタンラベル変更
+    const btn = document.getElementById('nav-member-btn');
+    if (btn) { btn.textContent = '会員ページ'; btn.style.background = 'var(--sage-dark)'; btn.style.borderColor = 'var(--sage-dark)'; }
+    // 画面切替
+    document.getElementById('login-wrap').style.display = 'none';
+    document.getElementById('member-area').classList.add('active');
+    // 入力クリア
+    document.getElementById('input-member-id').value = '';
+    document.getElementById('input-password').value = '';
+  } else {
+    err.classList.add('show');
+    document.getElementById('input-password').value = '';
+    document.getElementById('input-password').focus();
+  }
+}
+
+// ─── Logout ───
+function doLogout() {
+  memberLoggedIn  = false;
+  currentMemberId = null;
+  document.getElementById('login-wrap').style.display = 'flex';
+  document.getElementById('member-area').classList.remove('active');
+  const btn = document.getElementById('nav-member-btn');
+  if (btn) { btn.textContent = '会員ログイン'; btn.style.background = 'var(--terracotta)'; btn.style.borderColor = 'var(--terracotta)'; }
+  showPage('member');
 }
 
 // ─── Nav scroll ───
